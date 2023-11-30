@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceAuthentificationService } from '../../Service/service-authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription-enseignant',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionEnseignantComponent implements OnInit {
 
-  constructor(){
+  constructor(private _service:ServiceAuthentificationService,private router:Router){
 
   }
 
@@ -17,19 +19,34 @@ export class InscriptionEnseignantComponent implements OnInit {
 
   //-----------------------------------------------------
 
-  public Enseignant : {
-    NomPrenom :any,
-    Email : { type : String },
-    Mot_De_Pass :{ type : String },
-    R_Mot_De_Pass :{ type : String },
-    Verification : { type : String , default : false  },
-    Role :{ type : String },
-    image :{ type : File}
-    checkbox :{ type : any}
+  public Enseignant = {
+    NomPrenom :"",
+    Email : "",
+    Mot_De_Pass :"",
+    R_Mot_De_Pass :"",
+    Verification : "",
+    Role :""
   }
 
-  Recuperer_Images(){
+  image : any
 
-  }
+GetPhoto(img:any){
+this.image=img.target.files[0];
+}
 
+inscriptionEnseignant(){
+  let enseignantI = new FormData();
+  enseignantI.append("NomPrenom",this.Enseignant.NomPrenom);
+  enseignantI.append("Email",this.Enseignant.Email);
+  enseignantI.append("Mot_De_Pass",this.Enseignant.Mot_De_Pass);
+  enseignantI.append("Verification","Non Verifier");
+  enseignantI.append("Role","Enseignant");
+  enseignantI.append("image",this.image);
+
+  this._service.inscriptionEtudiant(enseignantI).subscribe(()=>{
+    console.log(enseignantI);
+    this.router.navigate(["/"]);
+  });
+
+}
 }

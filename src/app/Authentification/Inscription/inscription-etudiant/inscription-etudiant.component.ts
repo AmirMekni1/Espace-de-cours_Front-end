@@ -32,7 +32,7 @@ GetPhoto(img:any){
 this.image=img.target.files[0];
 }
 
-inscription(){
+inscriptionEtudiant(){
   let etudiantI = new FormData();
   etudiantI.append("NomPrenom",this.Etudiant.NomPrenom);
   etudiantI.append("Email",this.Etudiant.Email);
@@ -43,7 +43,7 @@ inscription(){
 
   this._service.inscriptionEtudiant(etudiantI).subscribe(()=>{
     console.log(etudiantI);
-    this.router.navigate[("/")];
+    this.router.navigate(["/"]);
   });
 
 }

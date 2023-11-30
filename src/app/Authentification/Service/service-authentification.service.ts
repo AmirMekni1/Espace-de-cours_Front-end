@@ -10,12 +10,15 @@ export class ServiceAuthentificationService {
 
 //_________________________________________________________________________________
 
-url = ("http://localhost:3000/Etudiant/");
+url = ("http://localhost:3000/");
 
 inscriptionEtudiant(objet:any){
- return this.connexionBD.post(this.url+"InscriptionEtudiant",objet);
+ return this.connexionBD.post(this.url+"Etudiant/InscriptionEtudiant",objet);
 }
-
+//________________________________________________________________________________________
+inscriptionEnseignant(objet:any){
+  return this.connexionBD.post(this.url+"Enseignant/InscriptionEtudiant",objet);
+ }
 
 
 
