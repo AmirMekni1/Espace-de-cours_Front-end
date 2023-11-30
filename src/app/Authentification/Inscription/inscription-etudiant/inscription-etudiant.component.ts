@@ -37,12 +37,13 @@ inscription(){
   etudiantI.append("NomPrenom",this.Etudiant.NomPrenom);
   etudiantI.append("Email",this.Etudiant.Email);
   etudiantI.append("Mot_De_Pass",this.Etudiant.Mot_De_Pass);
-  etudiantI.append("Verification",this.Etudiant.Verification);
-  etudiantI.append("Role",this.Etudiant.Role);
+  etudiantI.append("Verification","Non Verifier");
+  etudiantI.append("Role","Etudiant");
   etudiantI.append("image",this.image);
 
   this._service.inscriptionEtudiant(etudiantI).subscribe(()=>{
     console.log(etudiantI);
+    this.router.navigate[("/")];
   });
 
 }
