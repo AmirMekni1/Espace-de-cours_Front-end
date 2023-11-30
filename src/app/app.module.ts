@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { PageIntrouvableComponent } from './page-introuvable/page-introuvable.co
 import { ModuleAuthentificationModule } from './Authentification/module-authentification/module-authentification.module';
 import { ModuleEspaceEnseignantModule } from './Espace-Enseignant/module-espace-enseignant/module-espace-enseignant.module';
 import { ModuleEspaceEtudiantModule } from './Espace-Etudiant/module-espace-etudiant/module-espace-etudiant.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { ModuleEspaceEtudiantModule } from './Espace-Etudiant/module-espace-etud
     PageIntrouvableComponent,
   ],
   imports: [
+    RouterModule ,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -53,9 +56,12 @@ import { ModuleEspaceEtudiantModule } from './Espace-Etudiant/module-espace-etud
     MdbValidationModule,
     ModuleAuthentificationModule,
     ModuleEspaceEtudiantModule,
-    ModuleEspaceEnseignantModule
+    ModuleEspaceEnseignantModule,
+    FormsModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas : [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

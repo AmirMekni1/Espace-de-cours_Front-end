@@ -18,11 +18,11 @@ const appRoute: Routes = [
   {path : "InscriptionEnseignant" , component : InscriptionEnseignantComponent}
 ]},
   {path : "**" , component : PageIntrouvableComponent },
-  {path : "Enseignant" , component : EnseignantComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoute)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }

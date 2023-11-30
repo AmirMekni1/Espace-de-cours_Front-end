@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceAuthentificationService {
 
-  constructor() { }
+  constructor(private connexionBD : HttpClient) {  }
+
+//_________________________________________________________________________________
+
+url = ("http://localhost:4200/Etudiant/");
+
+inscriptionEtudiant(objet:any){
+ return this.connexionBD.post(this.url+"InscriptionEtudiant",objet);
+}
+
+
+
+
 }

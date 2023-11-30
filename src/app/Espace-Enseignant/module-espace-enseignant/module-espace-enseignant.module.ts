@@ -9,6 +9,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnseignantComponent } from '../enseignant/enseignant.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EnseignantComponent } from '../enseignant/enseignant.component';
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
-    ModuleEspaceEnseignantRoutingModule
+    ModuleEspaceEnseignantRoutingModule,
+    HttpClientModule
   ]
 })
 export class ModuleEspaceEnseignantModule { }
