@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceAuthentificationService } from '../Service/service-authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor(private route : Router){
+  constructor(private _service: ServiceAuthentificationService, private route: Router) {
 
   }
 
@@ -16,16 +17,32 @@ export class ConnexionComponent implements OnInit {
 
   }
 
-//_______________________________________________________________________________________
+  //_______________________________________________________________________________________
 
-public User : {
-  Email : { type : String },
-  Mot_De_Pass :{ type : String },
-  checkbox :{ type : any}
-}
+  token: any
 
-Connexion(){
-  this.route.navigate(["/Enseignant"]);
-}
+  public User = {
+    Email: "",
+    Mot_De_Pass: ""
+  }
+
+  Connexion() {
+    let userA = new FormData();
+    userA.append("Email", this.User.Email);
+    userA.append("Mot_De_Pass", this.User.Mot_De_Pass);
+
+    this._service.connexionEt(userA).subscribe(
+      res => {
+        this.token = res;
+        localStorage.setItem("Mytoken", this.token.MyToken);
+        this.route.navigate(["/Enseignant"]);
+        console.log(this.token)
+      },
+      err => {
+        alert("Email or password invalid")
+        console.log(this.token)
+        console.log(userA)
+      })
+  }
 
 }

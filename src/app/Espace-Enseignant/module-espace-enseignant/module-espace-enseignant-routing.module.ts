@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from '../profile/profile.component';
-import { EnseignantComponent } from '../enseignant/enseignant.component';
+import { MainEnseignantComponent } from '../main-enseignant/main-enseignant.component';
 
 const routes: Routes = [
-  {path : "Profile" , component : ProfileComponent},
-  {path : "Enseignant" , component : EnseignantComponent}
-
-];
+  {path : "" , component : MainEnseignantComponent, children : [
+    {path : "profile" , component : ProfileComponent}
+  ]}
+  
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -6,20 +6,45 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceAuthentificationService {
 
-  constructor(private connexionBD : HttpClient) {  }
+  constructor(private connexionBD: HttpClient,) { }
 
-//_________________________________________________________________________________
+  //________________________________________________________________________________________
 
-url = ("http://localhost:3000/");
+  IsUser() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-inscriptionEtudiant(objet:any){
- return this.connexionBD.post(this.url+"Etudiant/InscriptionEtudiant",objet);
-}
-//________________________________________________________________________________________
-inscriptionEnseignant(objet:any){
-  return this.connexionBD.post(this.url+"Enseignant/InscriptionEtudiant",objet);
- }
 
+  //________________________________________________________________________________________
+
+  url = ("http://localhost:3000/");
+
+  inscriptionEtudiant(objet: any) {
+    return this.connexionBD.post(this.url + "Etudiant/InscriptionEtudiant", objet);
+  }
+
+  //________________________________________________________________________________________
+
+  inscriptionEnseignant(objet: any) {
+    return this.connexionBD.post(this.url + "Enseignant/InscriptionEnseignant", objet);
+  }
+
+  //________________________________________________________________________________________
+
+  connexionEt(objet: any) {
+    return this.connexionBD.post(this.url + "Etudiant/SIGN", objet)
+  }
+
+  //________________________________________________________________________________________
+
+  connexionEn(objet: any) {
+    return this.connexionBD.post(this.url + "Enseignant/SIGN", objet)
+  }
 
 
 }

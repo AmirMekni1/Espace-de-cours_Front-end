@@ -43,7 +43,7 @@ inscriptionEnseignant(){
   enseignantI.append("Role","Enseignant");
   enseignantI.append("image",this.image);
 
-  this._service.inscriptionEtudiant(enseignantI).subscribe(()=>{
+  this._service.inscriptionEnseignant(enseignantI).subscribe(()=>{
     console.log(enseignantI);
     this.router.navigate(["/"]);
   });

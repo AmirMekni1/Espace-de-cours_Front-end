@@ -1,7 +1,7 @@
-import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from '../main/app.component';
 
 // MDB Modules
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
@@ -21,10 +21,10 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageIntrouvableComponent } from './page-introuvable/page-introuvable.component';
-import { ModuleAuthentificationModule } from './Authentification/module-authentification/module-authentification.module';
-import { ModuleEspaceEnseignantModule } from './Espace-Enseignant/module-espace-enseignant/module-espace-enseignant.module';
-import { ModuleEspaceEtudiantModule } from './Espace-Etudiant/module-espace-etudiant/module-espace-etudiant.module';
+import { PageIntrouvableComponent } from '../../app/page-introuvable/page-introuvable.component';
+import { ModuleAuthentificationModule } from '../../app/Authentification/module-authentification/module-authentification.module';
+import { ModuleEspaceEnseignantModule } from '../../app/Espace-Enseignant/module-espace-enseignant/module-espace-enseignant.module';
+import { ModuleEspaceEtudiantModule } from '../../app/Espace-Etudiant/module-espace-etudiant/module-espace-etudiant.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -32,10 +32,10 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    PageIntrouvableComponent,
+    PageIntrouvableComponent
   ],
   imports: [
-    RouterModule ,
+    RouterModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -58,10 +58,10 @@ import { RouterModule } from '@angular/router';
     ModuleEspaceEtudiantModule,
     ModuleEspaceEnseignantModule,
     FormsModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas : [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

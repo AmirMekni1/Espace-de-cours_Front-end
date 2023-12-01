@@ -2,31 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ModuleEspaceEnseignantRoutingModule } from './module-espace-enseignant-routing.module';
-import { FooterComponent } from '../footer/footer.component';
-import { HeaderComponent } from '../header/header.component';
 import { ProfileComponent } from '../profile/profile.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EnseignantComponent } from '../enseignant/enseignant.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MainEnseignantComponent } from '../main-enseignant/main-enseignant.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    FooterComponent,
     ProfileComponent,
-    EnseignantComponent
-   
+    MainEnseignantComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     CommonModule,
     ModuleEspaceEnseignantRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class ModuleEspaceEnseignantModule { }
