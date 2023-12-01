@@ -37,13 +37,13 @@ export class ServiceAuthentificationService {
   //________________________________________________________________________________________
 
   connexionEt(objet: any) {
-    return this.connexionBD.post(this.url + "Etudiant/SIGN", objet)
+    return this.connexionBD.post(this.url +"Etudiant/login",objet)
   }
 
   //________________________________________________________________________________________
 
   connexionEn(objet: any) {
-    return this.connexionBD.post(this.url + "Enseignant/SIGN", objet)
+    return this.connexionBD.post(this.url + "Enseignant/signin", objet)
   }
 
 

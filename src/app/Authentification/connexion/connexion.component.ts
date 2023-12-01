@@ -27,21 +27,15 @@ export class ConnexionComponent implements OnInit {
   }
 
   Connexion() {
-    let userA = new FormData();
-    userA.append("Email", this.User.Email);
-    userA.append("Mot_De_Pass", this.User.Mot_De_Pass);
 
-    this._service.connexionEt(userA).subscribe(
-      res => {
-        this.token = res;
-        localStorage.setItem("Mytoken", this.token.MyToken);
+    this._service.connexionEt(this.User).subscribe(
+      (res) => {
+        this.token = res
+        localStorage.setItem("token",this.token.MyToken)
         this.route.navigate(["/Enseignant"]);
-        console.log(this.token)
       },
-      err => {
-        alert("Email or password invalid")
-        console.log(this.token)
-        console.log(userA)
+      (err) => {
+        alert("erreur")
       })
   }
 
