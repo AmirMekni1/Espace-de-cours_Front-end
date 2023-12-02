@@ -6,15 +6,17 @@ import { InscriptionEnseignantComponent } from '../Inscription/inscription-ensei
 import { ConnexionComponent } from '../connexion/connexion.component';
 import { MainEnseignantComponent } from 'src/app/Espace-Enseignant/main-enseignant/main-enseignant.component';
 import { MainEtudiantComponent } from 'src/app/Espace-Etudiant/main-etudiant/main-etudiant.component';
+import { InscriptionEtudiantEnseignantComponent } from '../Inscription/inscription-etudiant-enseignant/inscription-etudiant-enseignant.component';
 const routes: Routes = [
   { path: "", component: ConnexionComponent },
   {
     path: "Inscription", component: MainInscriptionComponent, children: [
       { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
       { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
-      { path: "PageLogin", component: ConnexionComponent }
+      { path: "PageLogin", component: ConnexionComponent },
+      
     ]
-  },
+  },{ path: "IEE", component: InscriptionEtudiantEnseignantComponent },
   { path: "Enseignant", component: MainEnseignantComponent }
 
 ];

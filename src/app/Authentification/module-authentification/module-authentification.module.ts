@@ -8,13 +8,15 @@ import { InscriptionEnseignantComponent } from '../Inscription/inscription-ensei
 import { InscriptionEtudiantComponent } from '../Inscription/inscription-etudiant/inscription-etudiant.component';
 import { MainInscriptionComponent } from '../Inscription/main-inscription/main-inscription.component';
 import { RouterModule } from '@angular/router';
+import { InscriptionEtudiantEnseignantComponent } from '../Inscription/inscription-etudiant-enseignant/inscription-etudiant-enseignant.component';
 
 @NgModule({
   declarations: [
     ConnexionComponent,
     InscriptionEnseignantComponent,
     InscriptionEtudiantComponent,
-    MainInscriptionComponent
+    MainInscriptionComponent,
+    InscriptionEtudiantEnseignantComponent
   ],
   imports: [
     CommonModule,

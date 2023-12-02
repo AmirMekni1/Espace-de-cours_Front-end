@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceAuthentificationService } from 'src/app/Authentification/Service/service-authentification.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mdb-angular-ui-kit-free';
+  constructor(private _service : ServiceAuthentificationService){
+    
+  }
+  user(){
+    this._service.IsUser()
+  }
+  
 }
