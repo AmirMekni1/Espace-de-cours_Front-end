@@ -32,10 +32,19 @@ export class ConnexionComponent implements OnInit {
       (res) => {
         this.token = res
         localStorage.setItem("token",this.token.MyToken)
-        this.route.navigate(["/Enseignant"]);
+        this.route.navigate(["/Etudiant"]);
       },
       (err) => {
-        alert("erreur")
+        this._service.connexionEn(this.User).subscribe(
+          (res) => {
+            this.token = res
+            localStorage.setItem("token",this.token.MyToken)
+            this.route.navigate(["/Enseignant"]);
+          },(err) => {
+            alert("Email or Password Incorrect !")
+          }
+        )
+        
       })
   }
 

@@ -27,12 +27,15 @@ import { ModuleEspaceEnseignantModule } from '../../app/Espace-Enseignant/module
 import { ModuleEspaceEtudiantModule } from '../../app/Espace-Etudiant/module-espace-etudiant/module-espace-etudiant.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { VerificationEmailComponent } from 'src/app/Email/verification-email/verification-email.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageIntrouvableComponent
+    PageIntrouvableComponent,
+    VerificationEmailComponent
   ],
   imports: [
     RouterModule,
@@ -58,6 +61,7 @@ import { RouterModule } from '@angular/router';
     ModuleEspaceEtudiantModule,
     ModuleEspaceEnseignantModule,
     FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

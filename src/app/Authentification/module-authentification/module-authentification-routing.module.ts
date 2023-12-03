@@ -14,10 +14,11 @@ const routes: Routes = [
       { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
       { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
       { path: "PageLogin", component: ConnexionComponent },
-      
+
     ]
-  },{ path: "IEE", component: InscriptionEtudiantEnseignantComponent },
-  { path: "Enseignant", component: MainEnseignantComponent }
+  }, { path: "IEE", component: InscriptionEtudiantEnseignantComponent },
+  { path: "Enseignant", component: MainEnseignantComponent },
+  { path: "Etudiant", component: MainEtudiantComponent }
 
 ];
 
