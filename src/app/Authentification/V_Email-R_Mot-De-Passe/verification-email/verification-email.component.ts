@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VerificationEmailService } from '../Service/verification-email.service';
+import { VerificationEmailService } from '../../../Email/Service/verification-email.service';
+import { ServiceAuthentificationService } from '../../Service/service-authentification.service';
 
 @Component({
   selector: 'app-verification-email',
@@ -11,7 +12,7 @@ export class VerificationEmailComponent implements OnInit {
   
   cle : ""
 
-  constructor(private Ge_cle:ActivatedRoute , private _Service : VerificationEmailService){
+  constructor(private Ge_cle:ActivatedRoute , private _Service : ServiceAuthentificationService){
     this._Service.VerificationEmail(this.cle);
   }
 

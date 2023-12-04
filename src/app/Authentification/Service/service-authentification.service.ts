@@ -43,8 +43,15 @@ export class ServiceAuthentificationService {
   //________________________________________________________________________________________
 
   connexionEn(objet: any) {
-    return this.connexionBD.post(this.url + "Enseignant/signin", objet)
+    return this.connexionBD.post(this.url + "Enseignant/login", objet)
   }
 
+  //________________________________________________________________________________________
+
+  url2 = "http://localhost:3000/Etudiant/verifierEmail"
+
+  VerificationEmail(cle:any){
+    return this.connexionBD.post(this.url2+"/"+cle,"")
+  }
 
 }

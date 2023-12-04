@@ -31,21 +31,16 @@ export class ConnexionComponent implements OnInit {
     this._service.connexionEt(this.User).subscribe(
       (res) => {
         this.token = res
-        localStorage.setItem("token",this.token.MyToken)
+        localStorage.setItem("token", this.token.MyToken)
         this.route.navigate(["/Etudiant"]);
-      },
-      (err) => {
+      }, () => {
         this._service.connexionEn(this.User).subscribe(
           (res) => {
             this.token = res
-            localStorage.setItem("token",this.token.MyToken)
+            localStorage.setItem("token", this.token.MyToken)
             this.route.navigate(["/Enseignant"]);
-          },(err) => {
+          }, () => {
             alert("Email or Password Incorrect !")
-          }
-        )
-        
-      })
+          })})
   }
-
 }

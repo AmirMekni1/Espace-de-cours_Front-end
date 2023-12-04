@@ -9,16 +9,16 @@ import { MainEtudiantComponent } from 'src/app/Espace-Etudiant/main-etudiant/mai
 import { InscriptionEtudiantEnseignantComponent } from '../Inscription/inscription-etudiant-enseignant/inscription-etudiant-enseignant.component';
 const routes: Routes = [
   { path: "", component: ConnexionComponent },
-  {
-    path: "Inscription", component: MainInscriptionComponent, children: [
-      { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
-      { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
-      { path: "PageLogin", component: ConnexionComponent },
+    {path: "mainInscription", component: MainInscriptionComponent, children: [
+      {path: "Inscription", component: InscriptionEtudiantEnseignantComponent, children: [
+        { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
+        { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
+        { path: "PageLogin", component: ConnexionComponent },
 
-    ]
-  }, { path: "IEE", component: InscriptionEtudiantEnseignantComponent },
-  { path: "Enseignant", component: MainEnseignantComponent },
-  { path: "Etudiant", component: MainEtudiantComponent }
+      ]
+  }]}, { path: "IEE", component: InscriptionEtudiantEnseignantComponent },
+{ path: "Enseignant", component: MainEnseignantComponent },
+{ path: "Etudiant", component: MainEtudiantComponent }
 
 ];
 
