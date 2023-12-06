@@ -8,7 +8,9 @@ import { InscriptionEnseignantComponent } from '../Inscription/inscription-ensei
 import { InscriptionEtudiantComponent } from '../Inscription/inscription-etudiant/inscription-etudiant.component';
 import { MainInscriptionComponent } from '../Inscription/main-inscription/main-inscription.component';
 import { RouterModule } from '@angular/router';
-import { InscriptionEtudiantEnseignantComponent } from '../Inscription/inscription-etudiant-enseignant/inscription-etudiant-enseignant.component';
+import { MotDePasseOublierComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/mot-de-passe-oublier/mot-de-passe-oublier.component';
+import { NouvelleMotDePasseComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/nouvelle-mot-de-passe/nouvelle-mot-de-passe.component';
+import { VerificationEmailComponent } from '../V_Email-R_Mot-De-Passe/verification-email/verification-email.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { InscriptionEtudiantEnseignantComponent } from '../Inscription/inscripti
     InscriptionEnseignantComponent,
     InscriptionEtudiantComponent,
     MainInscriptionComponent,
-    InscriptionEtudiantEnseignantComponent
+    MotDePasseOublierComponent,
+    NouvelleMotDePasseComponent,
+    VerificationEmailComponent
+
   ],
   imports: [
     CommonModule,

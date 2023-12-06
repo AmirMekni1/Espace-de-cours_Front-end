@@ -6,19 +6,19 @@ import { InscriptionEnseignantComponent } from '../Inscription/inscription-ensei
 import { ConnexionComponent } from '../connexion/connexion.component';
 import { MainEnseignantComponent } from 'src/app/Espace-Enseignant/main-enseignant/main-enseignant.component';
 import { MainEtudiantComponent } from 'src/app/Espace-Etudiant/main-etudiant/main-etudiant.component';
-import { InscriptionEtudiantEnseignantComponent } from '../Inscription/inscription-etudiant-enseignant/inscription-etudiant-enseignant.component';
+import { MotDePasseOublierComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/mot-de-passe-oublier/mot-de-passe-oublier.component';
+import { VerificationEmailComponent } from '../V_Email-R_Mot-De-Passe/verification-email/verification-email.component';
+import { NouvelleMotDePasseComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/nouvelle-mot-de-passe/nouvelle-mot-de-passe.component';
 const routes: Routes = [
   { path: "", component: ConnexionComponent },
-    {path: "mainInscription", component: MainInscriptionComponent, children: [
-      {path: "Inscription", component: InscriptionEtudiantEnseignantComponent, children: [
-        { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
-        { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
-        { path: "PageLogin", component: ConnexionComponent },
-
-      ]
-  }]}, { path: "IEE", component: InscriptionEtudiantEnseignantComponent },
-{ path: "Enseignant", component: MainEnseignantComponent },
-{ path: "Etudiant", component: MainEtudiantComponent }
+  { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
+  { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
+  { path: "PageLogin", component: ConnexionComponent },
+  { path: "Enseignant", component: MainEnseignantComponent },
+  { path: "Etudiant", component: MainEtudiantComponent },
+  { path: "PasswordReset", component: MotDePasseOublierComponent },
+  { path: "NewPassword/:id", component: NouvelleMotDePasseComponent },
+  { path: "VerificationEmail/:id", component: VerificationEmailComponent },
 
 ];
 

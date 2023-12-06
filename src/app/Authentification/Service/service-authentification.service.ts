@@ -22,36 +22,86 @@ export class ServiceAuthentificationService {
 
   //________________________________________________________________________________________
 
-  url = ("http://localhost:3000/");
+  urlET = ("http://localhost:3000/Etudiant");
+  urlEN = ("http://localhost:3000/Enseignant");
 
   inscriptionEtudiant(objet: any) {
-    return this.connexionBD.post(this.url + "Etudiant/InscriptionEtudiant", objet);
+    return this.connexionBD.post(this.urlET + "/InscriptionEtudiant", objet);
   }
 
   //________________________________________________________________________________________
 
   inscriptionEnseignant(objet: any) {
-    return this.connexionBD.post(this.url + "Enseignant/InscriptionEnseignant", objet);
+    return this.connexionBD.post(this.urlEN + "/InscriptionEnseignant", objet);
   }
 
   //________________________________________________________________________________________
 
   connexionEt(objet: any) {
-    return this.connexionBD.post(this.url +"Etudiant/login",objet)
+    return this.connexionBD.post(this.urlET +"/login",objet)
   }
 
   //________________________________________________________________________________________
 
   connexionEn(objet: any) {
-    return this.connexionBD.post(this.url + "Enseignant/login", objet)
+    return this.connexionBD.post(this.urlEN + "/login", objet)
   }
 
   //________________________________________________________________________________________
 
-  url2 = "http://localhost:3000/Etudiant/verifierEmail"
-
-  VerificationEmail(cle:any){
-    return this.connexionBD.post(this.url2+"/"+cle,"")
+  VerificationEmailET(cle:any){
+    return this.connexionBD.post(this.urlET+"/verifierEmail/"+cle,"")
   }
+  
+  //________________________________________________________________________________________
+
+  VerificationEmailEN(cle:any){
+    return this.connexionBD.post(this.urlEN+"/verifierEmail/"+cle,"")
+  }
+
+  //________________________________________________________________________________________
+
+  MotdePassoublieET(cle:any){
+    return this.connexionBD.post(this.urlET+"/sendResetPassword",cle)
+  }
+
+  NoveauMotDePassET(cle:any,Mot_De_Pass:any){
+    return this.connexionBD.post(this.urlET+"/NewPassword/"+cle,Mot_De_Pass)
+  }
+
+  //________________________________________________________________________________________
+
+  MotDePassOublieEN(cle:any){
+    return this.connexionBD.post(this.urlEN+"/sendResetPassword",cle)
+  }
+
+  NoveauMotDePassEN(cle:any,Mot_De_Pass:any){
+    return this.connexionBD.post(this.urlET+"/NewPassword/"+cle,Mot_De_Pass)
+  }
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
+
+  //________________________________________________________________________________________
 
 }

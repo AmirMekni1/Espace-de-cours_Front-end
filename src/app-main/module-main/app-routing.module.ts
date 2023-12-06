@@ -5,7 +5,7 @@ import { PageIntrouvableComponent } from '../../app/page-introuvable/page-introu
 import { VerificationEmailComponent } from 'src/app/Authentification/V_Email-R_Mot-De-Passe/verification-email/verification-email.component';
 
 const appRoute: Routes = [
-  { path: "VerificationEmail/:id" , component:VerificationEmailComponent},
+  
   { path: "", loadChildren: () => import("../../app/Authentification/module-authentification/module-authentification.module").then(e => e.ModuleAuthentificationModule) },
   { path: "Etudiant", loadChildren: () => import("../../app/Espace-Etudiant/module-espace-etudiant/module-espace-etudiant.module").then(e => e.ModuleEspaceEtudiantModule) },
   { path: "Enseignant", loadChildren: () => import("../../app/Espace-Enseignant/module-espace-enseignant/module-espace-enseignant.module").then(e => e.ModuleEspaceEnseignantModule) },
