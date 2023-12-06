@@ -35,7 +35,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     PageIntrouvableComponent,
-    VerificationEmailComponent
   ],
   imports: [
     RouterModule,
