@@ -1,6 +1,4 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ModuleEspaceEnseignantRoutingModule } from './module-espace-enseignant-routing.module';
 import { ProfileComponent } from '../profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
