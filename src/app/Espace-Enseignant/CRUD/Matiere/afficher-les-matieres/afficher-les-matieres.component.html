@@ -1,0 +1,35 @@
+<section style="background-color: #eee;">
+    <div>
+        <mat-form-field>
+        
+        </mat-form-field>
+      </div>
+      <div>
+        <div class="text-center">
+        <button mat-raised-button (click)="openDialog()" style="background-color: rgb(255, 255, 255);">Ajouter Un Matiere</button>
+      </div>
+      </div>
+      <h4 *ngIf="color">
+        You selected:
+        <p style="font-weight: bold">{{ color }}</p>
+      </h4>
+    <router-outlet></router-outlet>
+
+
+<!--div *ngFor="let item of items"-->     
+  <div class="card">
+    <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+      </a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" style="margin-bottom: 30px; text-align: center;">Card title</h5>
+      <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Supprimer</a>
+      <a href="#!" class="btn btn-primary" style="margin-left: 5px;" data-mdb-ripple-init>Modifier</a>
+    </div>
+  </div>
+<!--/div-->
+
+</section>

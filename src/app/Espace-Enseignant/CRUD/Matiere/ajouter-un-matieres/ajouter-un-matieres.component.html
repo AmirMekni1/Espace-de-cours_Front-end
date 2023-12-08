@@ -1,0 +1,25 @@
+
+<h1 mat-dialog-title>Ajouter Un Matier</h1>
+<div mat-dialog-content>
+  <mat-form-field >
+  </mat-form-field>
+
+
+  <div class="up">
+
+
+  
+  <p>Nom De Matiere :</p>
+  <input type="text" id="form1Example1" class="form-control"
+    placeholder="Matiere" />
+    <label class="form-label" for="customFile">Choisir Une Image </label>
+<input type="file" class="form-control" id="customFile" />
+
+</div>
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.color" cdkFocusInitial>Ok</button>
+</div>
