@@ -13,13 +13,23 @@ export class NewPasswordComponent implements OnInit {
   id :""
   constructor(private _service : ServiceAuthentificationService,private getid : ActivatedRoute,private route : Router){
     
+    
+     
+       //-----------------------------------------------------
+   
   }
   ngOnInit(): void {
+    if (this._service.IsUser()==true){
+      this.route.navigate(["/**"])
+     }
     this.getid.params.subscribe((e)=>{
       this.id=e.id
     })
     
   }
+  isuser(){
+    return this._service.IsUser()
+   }
   
   NouvelleMotDePass(){
    this._service.NoveauMotDePassET(this.id,this.pwd).subscribe(()=>{

@@ -15,8 +15,13 @@ export class ResetPasswordComponent implements OnInit {
 
   }
   ngOnInit(): void {
-
+    if (this._service.IsUser()==true){
+      this.route.navigate(["/**"])
+     }
   }
+  isuser(){
+    return this._service.IsUser()
+   }
 
   MotDePasseOublier() {
     this._service.MotdePassoublieET(this.Email).subscribe(() => {

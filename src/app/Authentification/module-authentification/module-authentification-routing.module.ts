@@ -9,15 +9,17 @@ import { VerificationEmailComponent } from '../V_Email-R_Mot-De-Passe/verificati
 import { ResetPasswordComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/reset-password/reset-password.component';
 import { NewPasswordComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/new-password/new-password.component';
 const routes: Routes = [
-  { path: "", component: ConnexionComponent },
-  { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
-  { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
-  { path: "PageLogin", component: ConnexionComponent },
+  { path: "", component: ConnexionComponent, children :[
+    { path: "InscriptionEtudiant", component: InscriptionEtudiantComponent },
+    { path: "InscriptionEnseignant", component: InscriptionEnseignantComponent },
+    { path: "PageLogin", component: ConnexionComponent },
+  ] },
   { path: "Enseignant", component: MainEnseignantComponent },
   { path: "Etudiant", component: MainEtudiantComponent },
   { path: "PasswordReset", component: ResetPasswordComponent },
-  { path: "NewPassword/:id", component: NewPasswordComponent },
-  { path: "VerificationEmail/:id", component: VerificationEmailComponent },
+    { path: "NewPassword/:id", component: NewPasswordComponent },
+    { path: "VerificationEmail/:id", component: VerificationEmailComponent }
+  
 
 ];
 

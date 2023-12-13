@@ -13,9 +13,15 @@ export class InscriptionEtudiantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-  }
-
+    if (this._service.IsUser()==true){
+     this.router.navigate(["/**"])
+    }
+     }
+   
+     //-----------------------------------------------------
+   isuser(){
+    return this._service.IsUser()
+   }
 //___________________________________________________________________________________________________
 
 public Etudiant = {

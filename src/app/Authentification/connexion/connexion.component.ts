@@ -14,9 +14,15 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this._service.IsUser()==true){
+      this.route.navigate(["/**"])
+    }
 
   }
 
+  isUser(){
+    return this._service.IsUser()
+  }
   //_______________________________________________________________________________________
 
   token: any

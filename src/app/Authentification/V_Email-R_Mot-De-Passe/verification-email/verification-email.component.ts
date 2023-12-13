@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceAuthentificationService } from '../../Service/service-authentification.service';
 
 @Component({
@@ -8,13 +8,20 @@ import { ServiceAuthentificationService } from '../../Service/service-authentifi
   styleUrls: ['./verification-email.component.scss']
 })
 export class VerificationEmailComponent implements OnInit {
+  
+   
+     //-----------------------------------------------------
+ 
 
   cle: ""
 
-  constructor(private Ge_cle: ActivatedRoute, private _Service: ServiceAuthentificationService) {
+  constructor(private Ge_cle: ActivatedRoute, private _Service: ServiceAuthentificationService,private router : Router) {
   }
 
   ngOnInit(): void {
+    if (this._Service.IsUser()==true){
+      this.router.navigate(["/**"])
+     }
     this.Ge_cle.params.subscribe((e) => {
       this.cle = e.id;
       console.log(this.cle)
@@ -32,6 +39,11 @@ export class VerificationEmailComponent implements OnInit {
 
     });
 
+
   }
+
+  isuser(){
+    return this._Service.IsUser()
+   }
 
 }

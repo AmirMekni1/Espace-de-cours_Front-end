@@ -14,11 +14,15 @@ export class InscriptionEnseignantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+ if (this._service.IsUser()==true){
+  this.router.navigate(["/**"])
+ }
   }
 
   //-----------------------------------------------------
-
+isuser(){
+ return this._service.IsUser()
+}
   public Enseignant = {
     NomPrenom :"",
     Email : "",
