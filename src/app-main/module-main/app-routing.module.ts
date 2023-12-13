@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionComponent } from '../../app/Authentification/connexion/connexion.component';
 import { PageIntrouvableComponent } from '../../app/page-introuvable/page-introuvable.component';
-import { VerificationEmailComponent } from 'src/app/Authentification/V_Email-R_Mot-De-Passe/verification-email/verification-email.component';
 
 const appRoute: Routes = [
   

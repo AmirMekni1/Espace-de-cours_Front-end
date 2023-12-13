@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class ServiceAuthentificationService {
   //________________________________________________________________________________________
 
   IsUser() {
-    let token = localStorage.getItem("token");
-    if (token) {
+    let tokenn = localStorage.getItem("token");
+    if (tokenn) {
       return true;
     } else {
       return false;
@@ -61,22 +62,22 @@ export class ServiceAuthentificationService {
 
   //________________________________________________________________________________________
 
-  MotdePassoublieET(cle:any){
-    return this.connexionBD.post(this.urlET+"/sendResetPassword",cle)
+  MotdePassoublieET(texte: string): Observable<any> {
+    return this.connexionBD.post(this.urlET+ "/ResetPassword" ,{texte})
   }
 
-  NoveauMotDePassET(cle:any,Mot_De_Pass:any){
-    return this.connexionBD.post(this.urlET+"/NewPassword/"+cle,Mot_De_Pass)
+  NoveauMotDePassET(cle:any,texte: string): Observable<any> {
+    return this.connexionBD.post(this.urlET+"/NewPassword/"+cle,{texte})
   }
 
   //________________________________________________________________________________________
 
-  MotDePassOublieEN(cle:any){
-    return this.connexionBD.post(this.urlEN+"/sendResetPassword",cle)
+  MotDePassOublieEN(texte: string): Observable<any> {
+    return this.connexionBD.post(this.urlEN+"/ResetPassword",{texte})
   }
 
-  NoveauMotDePassEN(cle:any,Mot_De_Pass:any){
-    return this.connexionBD.post(this.urlET+"/NewPassword/"+cle,Mot_De_Pass)
+  NoveauMotDePassEN(cle:any,texte: string): Observable<any> {
+    return this.connexionBD.post(this.urlEN+"/NewPassword/"+cle,{texte})
   }
   //________________________________________________________________________________________
 

@@ -23,7 +23,8 @@ import { FooterComponent } from '../footer/footer.component';
     ModuleEspaceEtudiantRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    
 
   ]
 })

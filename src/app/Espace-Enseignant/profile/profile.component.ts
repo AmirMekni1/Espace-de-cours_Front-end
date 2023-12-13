@@ -12,7 +12,8 @@ export class ProfileComponent {
     id: "",
     NomPrenom: "",
     image: "",
-    Email :""
+    Email :"",
+    Role:""
   }
 
   constructor(private _service: ServiceEspaceEnseignantService) {
@@ -20,9 +21,7 @@ export class ProfileComponent {
    this.profile.NomPrenom = data.NomPrenom
    this.profile.image = data.image
    this.profile.Email = data.Email
-console.log(data.image)
-console.log(this.profile.image)
-
+   this.profile.Role = data.Role
   }
 
 

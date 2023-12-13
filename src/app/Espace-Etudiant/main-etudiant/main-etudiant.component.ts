@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServiceAuthentificationService } from 'src/app/Authentification/Service/service-authentification.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { ServiceAuthentificationService } from 'src/app/Authentification/Service
   styleUrls: ['./main-etudiant.component.scss']
 })
 export class MainEtudiantComponent {
-constructor(private _service : ServiceAuthentificationService){
-
-}
-user(){
-  this._service.IsUser()
-}
-
-}
+  constructor(private isUser : ServiceAuthentificationService,private route : Router){
+    if( this.isUser.IsUser() == false)
+    {
+      this.route.navigate(['**'])
+    }
+  }
+  user(){
+    return this.isUser.IsUser()
+  }
+  }

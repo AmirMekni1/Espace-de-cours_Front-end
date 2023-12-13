@@ -13,7 +13,7 @@ export class AfficherLesMatieresComponent {
   constructor(public dialog: MatDialog) {}
   openDialog(): void {
     const dialogRef = this.dialog.open(AjouterUnMatieresComponent, {
-      width: '25%',
+      width: '30%',
       data: { name: this.name, color: this.color },
     });
     dialogRef.afterClosed().subscribe((res) => {

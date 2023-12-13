@@ -7,10 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { InscriptionEnseignantComponent } from '../Inscription/inscription-enseignant/inscription-enseignant.component';
 import { InscriptionEtudiantComponent } from '../Inscription/inscription-etudiant/inscription-etudiant.component';
 import { MainInscriptionComponent } from '../Inscription/main-inscription/main-inscription.component';
-import { RouterModule } from '@angular/router';
-import { MotDePasseOublierComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/mot-de-passe-oublier/mot-de-passe-oublier.component';
-import { NouvelleMotDePasseComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/nouvelle-mot-de-passe/nouvelle-mot-de-passe.component';
+import {  RouterModule } from '@angular/router';
 import { VerificationEmailComponent } from '../V_Email-R_Mot-De-Passe/verification-email/verification-email.component';
+import { ResetPasswordComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/reset-password/reset-password.component';
+import { NewPasswordComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,9 @@ import { VerificationEmailComponent } from '../V_Email-R_Mot-De-Passe/verificati
     InscriptionEnseignantComponent,
     InscriptionEtudiantComponent,
     MainInscriptionComponent,
-    MotDePasseOublierComponent,
-    NouvelleMotDePasseComponent,
-    VerificationEmailComponent
+    VerificationEmailComponent,
+    ResetPasswordComponent,
+    NewPasswordComponent
 
   ],
   imports: [
