@@ -9,39 +9,47 @@ import { ServiceAuthentificationService } from 'src/app/Authentification/Service
 })
 export class NewPasswordComponent implements OnInit {
 
-  pwd : ""
-  id :""
-  constructor(private _service : ServiceAuthentificationService,private getid : ActivatedRoute,private route : Router){
-    
-    
-     
-       //-----------------------------------------------------
-   
+  pwd: ""
+  id: ""
+  constructor(private _service: ServiceAuthentificationService, private getid: ActivatedRoute, private route: Router) {
+
+    this.getid.params.subscribe((e) => {
+      this.id = e.id
+    })
+
+    //-----------------------------------------------------
+
   }
   ngOnInit(): void {
-    if (this._service.IsUser()==true){
+    if (this._service.IsUser() == true) {
       this.route.navigate(["/**"])
-     }
-    this.getid.params.subscribe((e)=>{
-      this.id=e.id
+    }
+
+
+  }
+  isuser() {
+    return this._service.IsUser()
+  }
+
+  NouvelleMotDePass() {
+    this._service.EE(this.id).subscribe(()=>{
+
+      this._service.NoveauMotDePassEN(this.id, this.pwd).subscribe((res) => {
+        alert("Le Mot De Passe Est Changer Avec Sucees")
+        this.route.navigate(['/'])
+      })
+
+    },()=>{
+
+      this._service.NoveauMotDePassET(this.id, this.pwd).subscribe(() => {
+        alert("Le Mot De Passe Est Changer Avec Sucees")
+        this.route.navigate(['/'])
+      })
+
     })
     
   }
-  isuser(){
-    return this._service.IsUser()
-   }
-  
-  NouvelleMotDePass(){
-   this._service.NoveauMotDePassET(this.id,this.pwd).subscribe(()=>{
-      alert("Le Mot De Passe Est Changer Avec Sucees")
-      this.route.navigate(['/'])
-    },()=>{
-      this._service.NoveauMotDePassEN(this.id,this.pwd).subscribe(()=>{
-        alert("Le Mot De Passe Est Changer Avec Sucees")
-        this.route.navigate(['/'])
-      },(err)=>{
-        alert(err)
-      })
-    })
-  }
+
+
+
 }

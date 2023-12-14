@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainEnseignantComponent } from '../main-enseignant/main-enseignant.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AfficherLesMatieresComponent } from '../CRUD/Matiere/afficher-les-matieres/afficher-les-matieres.component';
 import { AjouterUnMatieresComponent } from '../CRUD/Matiere/ajouter-un-matieres/ajouter-un-matieres.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -36,7 +36,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    RouterModule
+    
   ]
 })
 export class ModuleEspaceEnseignantModule { }

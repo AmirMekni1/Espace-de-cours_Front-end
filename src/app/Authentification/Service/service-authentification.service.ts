@@ -76,10 +76,14 @@ export class ServiceAuthentificationService {
     return this.connexionBD.post(this.urlEN+"/ResetPassword",{texte})
   }
 
-  NoveauMotDePassEN(cle:any,texte: string): Observable<any> {
-    return this.connexionBD.post(this.urlEN+"/NewPassword/"+cle,{texte})
+  NoveauMotDePassEN(cle:any,PWD: string): Observable<any> {
+    return this.connexionBD.post(this.urlEN+"/NewPassword/"+cle,{PWD})
   }
   //________________________________________________________________________________________
+
+  EE(cle:any) {
+    return this.connexionBD.post(this.urlEN+"/EE/"+cle,"")
+  }
 
   //________________________________________________________________________________________
 
