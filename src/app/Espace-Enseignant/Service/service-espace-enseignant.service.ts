@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class ServiceEspaceEnseignantService {
 
   urlEN = ("http://localhost:3000/Enseignant");
   urlMAT = ("http://localhost:3000/Matiere");
+
+  
 
   IsUser() {
     let tokenn = localStorage.getItem("token");
@@ -26,15 +28,18 @@ export class ServiceEspaceEnseignantService {
     return Data
   }
   
-  ajouterMatiere(o:any){
-   return this.connexionBD.post(this.urlMAT+"/ajouterMatiere",o)
+  ajouterMatiere(o:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+   return this.connexionBD.post(this.urlMAT+"/ajouterMatiere",o,{ headers })
   }
 
-  GetMatiere(o:any){
-    return this.connexionBD.get(this.urlMAT+"/GetAllCardMatiere/"+o)
+  GetMatiere(o:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.get(this.urlMAT+"/GetAllCardMatiere/"+o , { headers })
   }
 
-  DeleteeMatiere(o:any){
-    return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+o)
+  DeleteeMatiere(o:any,x:any){
+    return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+o+"/"+x)
   }
+
 }

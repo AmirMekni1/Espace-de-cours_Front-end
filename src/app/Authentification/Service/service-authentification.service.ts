@@ -25,6 +25,7 @@ export class ServiceAuthentificationService {
 
   urlET = ("http://localhost:3000/Etudiant");
   urlEN = ("http://localhost:3000/Enseignant");
+  urlMAT = ("http://localhost:3000/Matiere");
 
   inscriptionEtudiant(objet: any) {
     return this.connexionBD.post(this.urlET + "/InscriptionEtudiant", objet);
@@ -85,8 +86,12 @@ export class ServiceAuthentificationService {
     return this.connexionBD.post(this.urlEN+"/EE/"+cle,"")
   }
 
+ 
   //________________________________________________________________________________________
 
+  envoyerToken(o:any){
+    return this.connexionBD.post(this.urlMAT+"/VerifierToken",{o})
+  }
   //________________________________________________________________________________________
 
   //________________________________________________________________________________________

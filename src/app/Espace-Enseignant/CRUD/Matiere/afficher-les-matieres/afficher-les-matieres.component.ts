@@ -14,12 +14,14 @@ export class AfficherLesMatieresComponent implements OnInit {
   name: string;
   color: string;
   Email: any
+  
   constructor(public dialog: MatDialog, private _service: ServiceEspaceEnseignantService,private route : Router) { }
   ngOnInit(): void {
     let Data = this._service.GetDataProfile()
     this.Email = Data.Email
-    this._service.GetMatiere(Data.Email).subscribe((dat) => {
+    this._service.GetMatiere(Data.Email,localStorage.getItem("token")).subscribe((dat) => {
       this.ArrayMatiere = dat as any;
+
     })
   }
   openDialog(): void {
@@ -31,11 +33,12 @@ export class AfficherLesMatieresComponent implements OnInit {
       this.color = res;
     });
   }
+  
 
-
-  Delete(){
-    this._service.DeleteeMatiere(this.Email).subscribe(()=>{
+  Delete(x:any){
+    this._service.DeleteeMatiere(this.Email,x).subscribe(()=>{
       alert("Matiere Est Supprimer")
+      
     },(err)=>{
       alert(err)
     })

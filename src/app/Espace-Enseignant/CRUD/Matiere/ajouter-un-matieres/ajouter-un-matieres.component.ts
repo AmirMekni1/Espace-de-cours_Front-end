@@ -52,12 +52,10 @@ AjouterMetiere() {
   mat.append("NomMatier",this.Matiere.NomMatiere)
   mat.append("image",this.Matiere.image)
 
-  this._service.ajouterMatiere(mat).subscribe(()=>{
+  this._service.ajouterMatiere(mat,localStorage.getItem("token")).subscribe(()=>{
     alert("Matiere ajouter avec suceé")
-    this.route.navigateByUrl("http://localhost:4200/Enseignant/Matiere")
   },(err)=>{
     alert("Matiere ajouter avec suceé")
-    this.route.navigateByUrl("http://localhost:4200/Enseignant/Matiere")
   })
   
   }
