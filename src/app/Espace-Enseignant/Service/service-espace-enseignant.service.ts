@@ -10,6 +10,7 @@ export class ServiceEspaceEnseignantService {
 
   urlEN = ("http://localhost:3000/Enseignant");
   urlMAT = ("http://localhost:3000/Matiere");
+  urlCAL = ("http://localhost:3000/Classe");
 
   
 
@@ -38,8 +39,23 @@ export class ServiceEspaceEnseignantService {
     return this.connexionBD.get(this.urlMAT+"/GetAllCardMatiere/"+o , { headers })
   }
 
-  DeleteeMatiere(o:any,x:any){
-    return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+o+"/"+x)
+  DeleteeMatiere(o:any,x:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+o+"/"+x, { headers })
   }
 
+  ajouterClasse(o:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+   return this.connexionBD.post(this.urlCAL+"/ajouterClasse",o,{ headers })
+  }
+
+  GetClasse(o:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.get(this.urlCAL+"/GetAllCardClasse/"+o , { headers })
+  }
+
+  DeleteeClasse(o:any,x:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.delete(this.urlCAL+"/deleteClasse/"+o+"/"+x, { headers })
+  }
 }

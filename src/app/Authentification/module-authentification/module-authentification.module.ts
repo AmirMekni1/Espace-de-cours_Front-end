@@ -28,7 +28,8 @@ import { NewPasswordComponent } from '../V_Email-R_Mot-De-Passe/Mot-De-Passe/new
     ModuleAuthentificationRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    
     
   ]
 })

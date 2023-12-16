@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AjouterUnMatieresComponent } from '../ajouter-un-matieres/ajouter-un-matieres.component';
 import { ServiceEspaceEnseignantService } from 'src/app/Espace-Enseignant/Service/service-espace-enseignant.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-afficher-les-matieres',
@@ -14,12 +14,13 @@ export class AfficherLesMatieresComponent implements OnInit {
   name: string;
   color: string;
   Email: any
-  
-  constructor(public dialog: MatDialog, private _service: ServiceEspaceEnseignantService,private route : Router) { }
+
+  constructor(public dialog: MatDialog, private _service: ServiceEspaceEnseignantService, private route: Router) { }
   ngOnInit(): void {
+    this.getCurrentUrl()
     let Data = this._service.GetDataProfile()
     this.Email = Data.Email
-    this._service.GetMatiere(Data.Email,localStorage.getItem("token")).subscribe((dat) => {
+    this._service.GetMatiere(Data.Email, localStorage.getItem("token")).subscribe((dat) => {
       this.ArrayMatiere = dat as any;
 
     })
@@ -33,18 +34,22 @@ export class AfficherLesMatieresComponent implements OnInit {
       this.color = res;
     });
   }
-  
 
-  Delete(x:any){
-    this._service.DeleteeMatiere(this.Email,x).subscribe(()=>{
+
+  Delete(x: any) {
+    this._service.DeleteeMatiere(this.Email, x, localStorage.getItem("token")).subscribe(() => {
       alert("Matiere Est Supprimer")
-      
-    },(err)=>{
+      this.route.onSameUrlNavigation = "reload"
+    }, (err) => {
       alert(err)
     })
+    window.location.reload()
   }
 
-  router
+
+  getCurrentUrl() {
+    return this.route.url
+  }
 
 }
 

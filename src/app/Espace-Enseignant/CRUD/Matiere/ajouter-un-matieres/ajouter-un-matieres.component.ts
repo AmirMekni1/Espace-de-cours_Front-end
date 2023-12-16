@@ -47,6 +47,11 @@ this.Matiere.image = $event.target.files[0];
 
 
 AjouterMetiere() {
+  if(this.Matiere.NomMatiere.length==0){
+    alert("Entrer Le Nom De Matiere")
+  }else if(this.Matiere.image==""){
+    alert("Enter Le Photo De Matiere")
+  }else{
   let mat = new FormData()
   mat.append("Email",this.Matiere.Email)
   mat.append("NomMatier",this.Matiere.NomMatiere)
@@ -54,10 +59,11 @@ AjouterMetiere() {
 
   this._service.ajouterMatiere(mat,localStorage.getItem("token")).subscribe(()=>{
     alert("Matiere ajouter avec suceé")
+    
   },(err)=>{
     alert("Matiere ajouter avec suceé")
   })
-  
+  window.location.reload()
   }
-
+}
 }

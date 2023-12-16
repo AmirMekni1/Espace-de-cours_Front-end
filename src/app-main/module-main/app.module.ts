@@ -28,6 +28,8 @@ import { ModuleEspaceEtudiantModule } from '../../app/Espace-Etudiant/module-esp
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModuleEspaceEtudiantModule,
     ModuleEspaceEnseignantModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   providers: [],

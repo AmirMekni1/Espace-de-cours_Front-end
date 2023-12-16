@@ -16,6 +16,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog'
 import { FormsModule } from '@angular/forms';
+import { AfficherLesClassesComponent } from '../CRUD/Class/afficher-les-classes/afficher-les-classes.component';
+import { AjouterUnClasseComponent } from '../CRUD/Class/ajouter-un-classe/ajouter-un-classe.component';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     AfficherLesMatieresComponent,
-    AjouterUnMatieresComponent
+    AjouterUnMatieresComponent,
+    AfficherLesClassesComponent,
+    AjouterUnClasseComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatDialogModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgbTooltipModule
     
   ]
 })
