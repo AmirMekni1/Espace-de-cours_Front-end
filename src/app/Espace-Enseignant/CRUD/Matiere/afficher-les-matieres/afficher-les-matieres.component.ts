@@ -10,7 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./afficher-les-matieres.component.scss']
 })
 export class AfficherLesMatieresComponent implements OnInit {
-  ArrayMatiere: any[]
+  ArrayMatiere: any[] = [];
   name: string;
   color: string;
   Email: any
