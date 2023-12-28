@@ -1,0 +1,41 @@
+
+<div class=" d-flex align-items-center justify-content-center" ><h1 mat-dialog-title>Mise a jour De profile</h1></div>
+<h3 mat-dialog-title class="mb-4"><span class="text-primary font-italic me-1" style="margin-top: 500px;">personal information :</span></h3>
+<div mat-dialog-content>
+
+  <input type="text" id="form1Example1" style="text-align: center; margin-bottom: 10px;" class="form-control" name="NomMatiere" placeholder="Nom Et Prénom"       value="{{Information.NomPrenom}}"  [(ngModel)]=" Information.NomPrenom " />
+  <input type="text" id="form1Example1" style="text-align: center; margin-bottom: 10px;" class="form-control" name="NomMatiere" placeholder="Numero De Telephone" value="{{Information.Telephone}}"  [(ngModel)]=" Information.Telephone " />
+    <label class="form-label" for="customFile">Choisir Une Image </label>
+    
+    <div class=" d-flex align-items-center justify-content-center" style="height: 100px;" >
+    <form class="file-upload-form" (change)="Getphoto($event) ">
+      <label for="file" class="file-upload-label">
+        <div class="file-upload-design">
+          <svg viewBox="0 0 640 512" height="1em">
+            <path
+              d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"
+            ></path>
+          </svg>
+        </div>
+        <input id="file" type="file" accept="image/*" />
+      </label>
+    </form>
+</div>
+
+<p  class="mb-4"><span class="text-primary font-italic me-1" style="margin-top: 500px;">Les médias sociaux  :</span></p>
+
+          <input type="text" id="form1Example1" style="text-align: center;  margin-bottom: 10px;" value="{{Information.SiteWeb}}"  class="form-control icon-web "      [(ngModel)]="Information.SiteWeb"   name="SiteWeb"    placeholder="Site Web ou Linkedin" />
+          <i class="icon-A fas fa-globe fa-lg text-warning"></i>
+          <input type="text" id="form1Example1" style="text-align: center;  margin-bottom: 10px;" value="{{Information.GitHub}}"  class="form-control icon-github"    [(ngModel)]="Information.GitHub"    name="GitHub"     placeholder="GitHub" />
+          <i class="icon-B fab fa-github fa-lg" style="color: #333333;"></i>
+          <input type="text" id="form1Example1" style="text-align: center;  margin-bottom: 10px;" value="{{Information.Twitter}}"  class="form-control icon-twitter"   [(ngModel)]="Information.Twitter"   name="Twitter"    placeholder="Twiter" />
+          <i class="icon-C fab fa-twitter fa-lg" style="color: #55acee;"></i>
+          <input type="text" id="form1Example1" style="text-align: center;  margin-bottom: 10px;" value="{{Information.Instagram}}"  class="form-control icon-instagram" [(ngModel)]="Information.Instagram" name="Instagram"  placeholder="Instagram" />
+          <i class="icon-D fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+          <input type="text" id="form1Example1" style="text-align: center;  margin-bottom: 10px;" value="{{MS[4]}}"  class="form-control icon-facebook"  [(ngModel)]=" Information.Facebook "  name="Facebook"   placeholder="Facebook" />
+          <i class="icon-E fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial (click)="MiseAjour()">Ok</button>
+</div>

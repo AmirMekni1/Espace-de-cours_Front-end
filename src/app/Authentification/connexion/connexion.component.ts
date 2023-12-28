@@ -71,19 +71,17 @@ export class ConnexionComponent implements OnInit {
       (res) => {
         this.token = res
         localStorage.setItem("token", this.token.MyToken)
+        let data = this._service.GetDataProfile() 
+        let identifiant = data.id
         this.route.navigate(["/Etudiant"]);
-        this._service.envoyerToken("verifier").subscribe((d)=>{
-          console.log("verifier")
-      })
       }, () => {
         this._service.connexionEn(this.User).subscribe(
           (res) => {
             this.token = res
             localStorage.setItem("token", this.token.MyToken)
+            let data = this._service.GetDataProfile() 
+            let identifiant = data.id
             this.route.navigate(["/Enseignant"]);
-            this._service.envoyerToken("verifier").subscribe((d)=>{
-              console.log("verifier")
-          })
           }, () => {
             alert("Email or Password Incorrect !")
           })})

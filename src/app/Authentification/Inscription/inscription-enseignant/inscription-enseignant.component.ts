@@ -29,7 +29,8 @@ isuser(){
     Mot_De_Pass :"",
     R_Mot_De_Pass :"",
     Verification : "",
-    Role :""
+    Role :"",
+    NumeroDeTelephone:""
   }
 
   image : any
@@ -46,6 +47,7 @@ inscriptionEnseignant(){
   enseignantI.append("Verification","false");
   enseignantI.append("Role","Enseignant");
   enseignantI.append("image",this.image);
+  enseignantI.append("Telephone",this.Enseignant.NumeroDeTelephone);
 
   this._service.inscriptionEnseignant(enseignantI).subscribe(()=>{
     console.log(enseignantI);

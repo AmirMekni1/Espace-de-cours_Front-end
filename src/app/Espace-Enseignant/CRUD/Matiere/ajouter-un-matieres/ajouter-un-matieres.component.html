@@ -6,6 +6,7 @@
   <input type="text" id="form1Example1" class="form-control" name="NomMatiere" [(ngModel)]="Matiere.NomMatiere"
     placeholder="Matiere" />
     <label class="form-label" for="customFile">Choisir Une Image </label>
+    <div class=" d-flex align-items-center justify-content-center" >
     <form class="file-upload-form" (change)="Getphoto($event)">
       <label for="file" class="file-upload-label">
         <div class="file-upload-design">
@@ -19,7 +20,7 @@
         <input id="file" type="file" />
       </label>
     </form>
-
+</div>
 </div>
 
 

@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainEnseignantComponent } from '../main-enseignant/main-enseignant.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AfficherLesMatieresComponent } from '../CRUD/Matiere/afficher-les-matieres/afficher-les-matieres.component';
 import { AjouterUnMatieresComponent } from '../CRUD/Matiere/ajouter-un-matieres/ajouter-un-matieres.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { AfficherLesClassesComponent } from '../CRUD/Class/afficher-les-classes/afficher-les-classes.component';
 import { AjouterUnClasseComponent } from '../CRUD/Class/ajouter-un-classe/ajouter-un-classe.component';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { MiseAJourComponent } from '../profile/mise-a-jour/mise-a-jour.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     AfficherLesMatieresComponent,
     AjouterUnMatieresComponent,
     AfficherLesClassesComponent,
-    AjouterUnClasseComponent
+    AjouterUnClasseComponent,
+    MiseAJourComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     FormsModule,
     RouterModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    
     
   ]
 })

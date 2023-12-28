@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -58,4 +59,38 @@ export class ServiceEspaceEnseignantService {
     const headers = new HttpHeaders({ Authorization: `${token}` });
     return this.connexionBD.delete(this.urlCAL+"/deleteClasse/"+o+"/"+x, { headers })
   }
+
+  AjouterMatiereEnseignant(o,id:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+   return this.connexionBD.post(this.urlEN+"/AjouterMatiereEnseignant/"+id,{o}, { headers })
+  }
+
+  RecupererMatiereEnseignant(id:any,token:any): Observable<string[]>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+   return this.connexionBD.get<string[]>(this.urlEN+"/RecupererMatiereEnseignant/"+id, { headers })
+  }
+
+  MiseAjour(data,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    console.log(data)
+   return this.connexionBD.put<any>(this.urlEN+"/MiseAjourProfile",data,{headers})
+  }
+
+  GetAllMediasSociaux(id:any,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+   return this.connexionBD.get<any>(this.urlEN+"/GetAllMediasSociaux/"+id,{headers})
+  }
+
+  DataEn(id:any,token:any){
+   const headers = new HttpHeaders({ Authorization: `${token}` });
+   return this.connexionBD.get(this.urlEN+"/Lister/"+id,{headers})
+  }
+
+  SupprimerMatiereEnseignant(id:any,M:String,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.delete(this.urlEN+"/SupprimerMatiereEnseignant/"+id+"/"+M,{headers})
+   }
+
+
+
 }

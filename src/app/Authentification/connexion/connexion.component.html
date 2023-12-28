@@ -1,4 +1,7 @@
 <section class="vh-100" *ngIf="isUser()==false">
+  <div *ngIf="a.invalid && a.touched" class="alert alert-danger" role="alert" style="width: 30%; display: inline-block;">
+    Ce champ est obligatoire!
+  </div>
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
@@ -390,6 +393,7 @@
             <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
             </button>
+
             <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-twitter"></i>
             </button>
@@ -408,17 +412,18 @@
 
           <!-- Email input -->
           <div class="input-group mb-3">
-            <input type="email"  name="Email" required
+            <input type="email"  name="Email" required  
               [(ngModel)]="User.Email"
               type="email"
               class="form-control rounded"
               style="text-align: center;"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              placeholder="Enter a valid email address" />
+              placeholder="Enter a valid email address" ngModel #a="ngModel" />
             
           </div>
 
+        
           
           <div class="input-group mb-3">
             <input type="password"  name="Mot_De_Pass"
