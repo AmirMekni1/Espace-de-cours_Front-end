@@ -11,7 +11,7 @@ export class ServiceEspaceEnseignantService {
 
   urlEN = ("http://localhost:3000/Enseignant");
   urlMAT = ("http://localhost:3000/Matiere");
-  urlCAL = ("http://localhost:3000/Classe");
+  urlDOC = ("http://localhost:3000/Document");
 
   
 
@@ -45,7 +45,7 @@ export class ServiceEspaceEnseignantService {
     return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+o+"/"+x, { headers })
   }
 
-  ajouterClasse(o:any,token:any){
+  /*ajouterClasse(o:any,token:any){
     const headers = new HttpHeaders({ Authorization: `${token}` });
    return this.connexionBD.post(this.urlCAL+"/ajouterClasse",o,{ headers })
   }
@@ -58,7 +58,7 @@ export class ServiceEspaceEnseignantService {
   DeleteeClasse(o:any,x:any,token:any){
     const headers = new HttpHeaders({ Authorization: `${token}` });
     return this.connexionBD.delete(this.urlCAL+"/deleteClasse/"+o+"/"+x, { headers })
-  }
+  }*/
 
   AjouterMatiereEnseignant(o,id:any,token:any){
     const headers = new HttpHeaders({ Authorization: `${token}` });
@@ -91,6 +91,16 @@ export class ServiceEspaceEnseignantService {
     return this.connexionBD.delete(this.urlEN+"/SupprimerMatiereEnseignant/"+id+"/"+M,{headers})
    }
 
+   AjouterDoucument(o:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.post(this.urlDOC+"/AjouterDoucument",o,{headers})
+   }
 
+   GetDocuments(Email:any,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.get<any>(this.urlDOC+"/Lister/"+Email,{headers})
+   }
+
+   
 
 }

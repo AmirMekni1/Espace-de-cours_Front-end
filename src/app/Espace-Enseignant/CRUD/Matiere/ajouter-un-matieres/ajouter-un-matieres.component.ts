@@ -23,8 +23,8 @@ export class AjouterUnMatieresComponent {
   Matiere = {
     Email : "",
     NomMatiere : "",
-    image : ""
-
+    image : "",
+    Classe : ""
   }
 Getphoto($event: any) {
 this.Matiere.image = $event.target.files[0];
@@ -56,7 +56,7 @@ AjouterMetiere() {
   mat.append("Email",this.Matiere.Email)
   mat.append("NomMatier",this.Matiere.NomMatiere)
   mat.append("image",this.Matiere.image)
-
+  mat.append("Classe",this.Matiere.Classe)
   this._service.ajouterMatiere(mat,localStorage.getItem("token")).subscribe(()=>{
     alert("Matiere ajouter avec suceé")
     

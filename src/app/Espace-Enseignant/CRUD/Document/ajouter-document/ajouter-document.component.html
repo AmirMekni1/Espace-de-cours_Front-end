@@ -1,12 +1,17 @@
 
-<h1 mat-dialog-title>Ajouter Un Classe</h1>
-<div mat-dialog-content>
+<div mat-dialog-title style="text-align: center;">text</div>
+<div mat-dialog-title>
   <div class="up">
-  <p>Nom De Classe :</p>
-  <input type="text" id="form1Example1" class="form-control" name="NomMatiere" [(ngModel)]="Classe.NomDeClasse"  required
-    placeholder="Classe" />
-    <label class="form-label" for="customFile">Choisir Une Image </label>
-    <form class="file-upload-form" (change)="Getphoto($event)">
+  <p>Contenu De Message :</p>
+  <textarea type="text" id="form1Example1" class="form-control" name="NomMatiere" [(ngModel)]="Documents.texte"
+    placeholder="Annoncez quelque chose à votre classe" ></textarea>
+
+    <p>Date Limitte :</p>
+  <input type="date" id="form1Example1" class="form-control" name="Classe" [(ngModel)]="Documents.DateLimitte"
+    placeholder="Date Limitte De Poser Le cours" />
+    <label class="form-label" for="customFile">Choisir Le Fichier </label>
+    <div class=" d-flex align-items-center justify-content-center" >
+    <form class="file-upload-form" (change)="Getfile($event)">
       <label for="file" class="file-upload-label">
         <div class="file-upload-design">
           <svg viewBox="0 0 640 512" height="1em">
@@ -19,12 +24,12 @@
         <input id="file" type="file" />
       </label>
     </form>
-        
+</div>
 </div>
 
 
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="" cdkFocusInitial (click)="AjouterClasse()" [ngClass]="{'error-border': Classe.NomDeClasse === '' }">Ok</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial (click)="AjouterDoucument()">Ok</button>
 </div>

@@ -11,7 +11,7 @@
 </div>
     
   <div class="card" *ngFor="let item of ArrayMatiere">
-    <a routerLink="/Enseignant/Matiere/Classes">
+    <a routerLink="/Enseignant/Matiere/AfficherMatiere">
     <img [src]="'http://127.0.0.1:3000/GetImageMatiere/'+item.image" 
       class="img-fluid" />
   
@@ -19,6 +19,7 @@
     </a>
   <div class="card-details">
     <p class="text-title">{{item.NomMatier}}</p>
+    <p class="text-title" style="text-align: center;">{{item.Classe}}</p>
   </div>
   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
     <button class="button card-button" (click)="Delete(item.image)">

@@ -9,12 +9,17 @@ label{
 .up{
     margin-top: -50px;
 }
+
+.centrer{
+  width: 45%;
+  margin: 0 auto;
+  border-radius: 10%;
+  
+}
+
 p{
   margin-top: 20px;
 }
-.error-border::after {
-    border-color: red;
-  }
 .file-upload-form {
   width: fit-content;
   height: fit-content;
@@ -32,13 +37,8 @@ p{
 }
 .file-upload-label {
   cursor: pointer;
-
   padding: 30px 70px;
   border-radius: 20px;
-  border: 2px dashed rgb(82, 82, 82);
-  width : 500px;
-  margin-left: 34px;
-  height: 170px;
 
 }
 .file-upload-design {

@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   constructor(private _service: ServiceEspaceEnseignantService,public dialog: MatDialog) {
     let data = this._service.GetDataProfile();
     this._service.DataEn(data.id,localStorage.getItem("token")).subscribe((d:any)=>{
-      this.profile=d 
+      this.profile=d
     },()=>{
     })
   }
