@@ -32,9 +32,7 @@ export class MiseAJourComponent {
   }
 
   MS = []
-Getphoto($event: any) {
-this.Information.image = $event.target.files[0];
-}
+
 
   constructor(
     private route : Router,
@@ -67,11 +65,27 @@ this.Information.image = $event.target.files[0];
    })
   
   }
+  Getphoto($event: any) {
+
+    this.Information.image = $event.target.files[0];
+   
+    }
   
 MiseAjour() {
- this._service.MiseAjour(this.Information,localStorage.getItem("token")).subscribe((d) => {
+  let Donnees = new FormData()
+  Donnees.append("id",this.Information.id)
+  Donnees.append("NomPrenom",this.Information.NomPrenom)
+  Donnees.append("Telephone",this.Information.Telephone)
+  Donnees.append("image",this.Information.image )
+  Donnees.append("SiteWeb",this.Information.SiteWeb)
+  Donnees.append("GitHub",this.Information.GitHub)
+  Donnees.append("Twitter",this.Information.Twitter)
+  Donnees.append("Instagram",this.Information.Instagram)
+  Donnees.append("Facebook",this.Information.Facebook )
+  location.reload()
+ this._service.MiseAjour(Donnees,localStorage.getItem("token")).subscribe((d) => {
    console.log(" Mise à jour réussie");
-   location.reload()
+   
 },
 (err) => {
   alert("Erreur lors de la mise à jour");

@@ -3,9 +3,11 @@
 <div mat-dialog-title>
   <div class="up">
   <p>Contenu De Message :</p>
-  <textarea type="text" id="form1Example1" class="form-control" name="NomMatiere" [(ngModel)]="Documents.texte"
-    placeholder="Annoncez quelque chose à votre classe" ></textarea>
+  <textarea type="text" id="form1Example1" class="form-control" name="textearea1" [(ngModel)]="Documents.texte"
+    placeholder="Annoncez quelque chose à votre classe" ngModel #textearea1="ngModel"></textarea>
 
+   
+    
     <p>Date Limitte :</p>
   <input type="date" id="form1Example1" class="form-control" name="Classe" [(ngModel)]="Documents.DateLimitte"
     placeholder="Date Limitte De Poser Le cours" />

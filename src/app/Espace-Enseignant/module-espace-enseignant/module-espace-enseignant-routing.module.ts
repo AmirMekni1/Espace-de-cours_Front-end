@@ -6,6 +6,7 @@ import { AfficherLesMatieresComponent } from '../CRUD/Matiere/afficher-les-matie
 import { AjouterUnMatieresComponent } from '../CRUD/Matiere/ajouter-un-matieres/ajouter-un-matieres.component';
 import { AjouterDocumentComponent } from '../CRUD/Document/ajouter-document/ajouter-document.component';
 import { AfficherDocumentComponent } from '../CRUD/Document/afficher-document/afficher-document.component';
+import { MeetComponent } from '../MEET/meet/meet.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
           { path: "AjouteUnMatiere", component: AjouterDocumentComponent },
           { path: "AfficherMatiere", component: AfficherDocumentComponent },
         ]
-      }
+      },{ path: "FaceToFace", component: MeetComponent }
     ]
   }
 

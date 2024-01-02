@@ -18,7 +18,7 @@
     background-color: #eee;
   }
 
-  button {
+  #btnLarge {
     border: none;
     display: flex;
     padding: 0.75rem 1.5rem;
@@ -38,16 +38,18 @@
     transition: all .6s ease;
   }
   
-  button:hover {
+  #btnLarge:hover {
     box-shadow: 0 10px 15px -3px #488aec4f, 0 4px 6px -2px #488aec17;
   }
   
-  button:focus,button:active {
+  #btnLarge:focus,#btnLarge:active {
     opacity: .85;
     box-shadow: none;
   }
   
-  button svg {
+  #btnLarge svg {
     width: 1.25rem;
     height: 1.25rem;
   }
+
+  

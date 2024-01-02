@@ -21,6 +21,7 @@ import { MiseAJourComponent } from '../profile/mise-a-jour/mise-a-jour.component
 import { AjouterDocumentComponent } from '../CRUD/Document/ajouter-document/ajouter-document.component';
 import { AfficherDocumentComponent } from '../CRUD/Document/afficher-document/afficher-document.component';
 import { ModifierSupprimerDoucumentComponent } from '../CRUD/Document/modifier-supprimer-doucument/modifier-supprimer-doucument.component';
+import { MeetComponent } from '../MEET/meet/meet.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ModifierSupprimerDoucumentComponent } from '../CRUD/Document/modifier-s
     MiseAJourComponent,
     AjouterDocumentComponent,
     AfficherDocumentComponent,
-    ModifierSupprimerDoucumentComponent
+    ModifierSupprimerDoucumentComponent,
+    MeetComponent
   ],
   imports: [
     CommonModule,

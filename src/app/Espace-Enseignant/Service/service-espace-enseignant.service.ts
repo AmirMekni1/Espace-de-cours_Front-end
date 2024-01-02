@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ServiceEspaceEnseignantService {
   urlMAT = ("http://localhost:3000/Matiere");
   urlDOC = ("http://localhost:3000/Document");
 
-  
+  Variable_A :any
 
   IsUser() {
     let tokenn = localStorage.getItem("token");
@@ -40,25 +40,10 @@ export class ServiceEspaceEnseignantService {
     return this.connexionBD.get(this.urlMAT+"/GetAllCardMatiere/"+o , { headers })
   }
 
-  DeleteeMatiere(o:any,x:any,token:any){
+  DeleteeMatiere(x:any,token:any){
     const headers = new HttpHeaders({ Authorization: `${token}` });
-    return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+o+"/"+x, { headers })
+    return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+x, { headers })
   }
-
-  /*ajouterClasse(o:any,token:any){
-    const headers = new HttpHeaders({ Authorization: `${token}` });
-   return this.connexionBD.post(this.urlCAL+"/ajouterClasse",o,{ headers })
-  }
-
-  GetClasse(o:any,token:any){
-    const headers = new HttpHeaders({ Authorization: `${token}` });
-    return this.connexionBD.get(this.urlCAL+"/GetAllCardClasse/"+o , { headers })
-  }
-
-  DeleteeClasse(o:any,x:any,token:any){
-    const headers = new HttpHeaders({ Authorization: `${token}` });
-    return this.connexionBD.delete(this.urlCAL+"/deleteClasse/"+o+"/"+x, { headers })
-  }*/
 
   AjouterMatiereEnseignant(o,id:any,token:any){
     const headers = new HttpHeaders({ Authorization: `${token}` });
@@ -96,11 +81,50 @@ export class ServiceEspaceEnseignantService {
     return this.connexionBD.post(this.urlDOC+"/AjouterDoucument",o,{headers})
    }
 
-   GetDocuments(Email:any,token:any): Observable<any>{
+   GetDocuments(cle:any,token:any): Observable<any>{
     const headers = new HttpHeaders({ Authorization: `${token}` });
-    return this.connexionBD.get<any>(this.urlDOC+"/Lister/"+Email,{headers})
+    return this.connexionBD.get<any>(this.urlDOC+"/Lister/"+cle,{headers})
    }
 
+   Set_A(Variable_B : any){
+    this.Variable_A = Variable_B
+   }
    
+   GetDocument(cle:any,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.get<any>(this.urlDOC+"/GetDocument/"+cle,{headers})
+   }
 
+   SupprimerDocument(id:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.delete(this.urlDOC+"/deleteDocument/"+id,{headers})
+   }
+   
+   MiseAjourDocument(id:any,dat,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.put(this.urlDOC+"/MiseAjourDocument/"+id,dat,{headers})
+   }
+   
+   AjouterCommentaireDansDoucument(id:any,commentaireData:any,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.post(this.urlDOC+"/AjouterCommentaireDansDoucument/"+id,commentaireData,{headers})
+   }
+
+   RecupereCommentaireDansDoucument(id:any,token:any): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.get(this.urlDOC+"/AjouterCommentaireDansDoucument/"+id,{headers})
+   }
+
+   SupprimerToutLesDocument(id:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.delete(this.urlDOC+"/deleteAllDocument/"+id,{headers})
+   }
+
+   private themeSubject = new BehaviorSubject<string>('light');
+   theme$ = this.themeSubject.asObservable();
+ 
+   setTheme(theme: string) {
+     this.themeSubject.next(theme);
+   }
+   
 }

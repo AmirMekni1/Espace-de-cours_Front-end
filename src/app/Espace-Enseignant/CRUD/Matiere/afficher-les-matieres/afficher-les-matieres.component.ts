@@ -37,13 +37,17 @@ export class AfficherLesMatieresComponent implements OnInit {
 
 
   Delete(x: any) {
-    this._service.DeleteeMatiere(this.Email, x, localStorage.getItem("token")).subscribe(() => {
+    this._service.DeleteeMatiere(x, localStorage.getItem("token")).subscribe(() => {
+      this._service.SupprimerToutLesDocument(x,localStorage.getItem("token")).subscribe(()=>{
+        
+      })
       alert("Matiere Est Supprimer")
+      location.reload()
       this.route.onSameUrlNavigation = "reload"
     }, (err) => {
       alert(err)
     })
-    window.location.reload()
+   
   }
 
 
@@ -51,5 +55,8 @@ export class AfficherLesMatieresComponent implements OnInit {
     return this.route.url
   }
 
+  setCle_Etudiant(o:any){
+    localStorage.setItem("x",o)
+  }
 }
 

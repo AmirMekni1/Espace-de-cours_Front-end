@@ -389,18 +389,26 @@
           <div class="d-flex justify-content-between align-items-center">
             <div
             class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
+            <p class="lead fw-normal mb-0 me-3" >Sign in with</p>
+            <!-- Facebook -->
+<a style="color: #3b5998; margin-right: 20px; margin-left: 30px;" href="#!" role="button">
+  <i class="fab fa-facebook-f fa-lg"></i>
+</a>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
+<!-- Twitter -->
+<a style="color: #55acee; margin-right: 20px;" href="#!" role="button">
+  <i class="fab fa-twitter fa-lg"></i>
+</a>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-linkedin-in"></i>
-            </button>
+<!-- Google -->
+<a style="color: #dd4b39; margin-right: 20px;" href="#!" role="button">
+  <i class="fab fa-google fa-lg"></i>
+</a>
+
+<!-- Instagram -->
+<a style="color: #ac2bac; margin-right: 20px;" href="#!" role="button">
+  <i class="fab fa-instagram fa-lg"></i>
+</a>
           </div>
             <a routerLink="/PasswordReset" class="text-body">Forgot password?</a>
           </div>
@@ -443,8 +451,8 @@
               style="padding-left: 2.5rem; margin-bottom: 50px; padding-right: 2.5rem;">Login</button></div>
               <div class=" d-flex align-items-center justify-content-center" >
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? you can Registered as a
-              <a routerLink="/InscriptionEtudiant" style="text-decoration-line: underline; word-spacing: 5px;" class="link-danger">Student or </a>
-              <a routerLink="/InscriptionEnseignant" style="text-decoration-line: underline;" class="link-danger">  Teacher</a>
+              <button class="btn btn-primary" routerLink="/InscriptionEtudiant" type="button" style="margin: 0px 15px 0px 15px;" data-mdb-ripple-init>Student</button>
+              <button class="btn btn-primary" routerLink="/InscriptionEnseignant" type="button" data-mdb-ripple-init>Teacher</button>
             </p></div>
           
 

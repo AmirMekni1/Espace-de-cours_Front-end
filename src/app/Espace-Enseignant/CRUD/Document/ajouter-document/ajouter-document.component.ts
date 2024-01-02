@@ -41,12 +41,23 @@ export class AjouterDocumentComponent implements OnInit {
     Doc.append("DateLimitte",this.Documents.DateLimitte)
     Doc.append("Fichier",this.Documents.Fichier)
     Doc.append("texte",this.Documents.texte)
+    Doc.append("id",localStorage.getItem("x"))
+    if (this.Documents.DateLimitte=="" ){
+      alert("Choisir une Date Limitte")
+    } else if (this.Documents.texte=="" ){
+      if (this.Documents.Fichier=="" ){
+        alert("Champs texte est vide")
+      }else{alert(" Acune Document")}
+      
+    }else{
     this._service.AjouterDoucument(Doc,localStorage.getItem("token")).subscribe(()=>{
+      location.reload()
       console.log("ok")
     },(err)=>{
+      location.reload()
       console.log(err)
     })
-  }
+  }}
 
   onNoClick(): void {
     this.dialogRef.close();
