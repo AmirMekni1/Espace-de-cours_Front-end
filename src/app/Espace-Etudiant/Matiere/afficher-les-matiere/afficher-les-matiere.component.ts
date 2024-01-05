@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { RejoindreACoursComponent } from '../rejoindre-a-cours/rejoindre-a-cours.component';
+import { ServiceEspaceEtudiantService } from '../../service/service-espace-etudiant.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AjouterUnMatieresComponent } from '../ajouter-un-matieres/ajouter-un-matieres.component';
-import { ServiceEspaceEnseignantService } from 'src/app/Espace-Enseignant/Service/service-espace-enseignant.service';
-import { NavigationEnd, Router } from '@angular/router';
-import { ServiceEspaceEtudiantService } from 'src/app/Espace-Etudiant/service/service-espace-etudiant.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-afficher-les-matieres',
-  templateUrl: './afficher-les-matieres.component.html',
-  styleUrls: ['./afficher-les-matieres.component.scss']
+  selector: 'app-afficher-les-matiere',
+  templateUrl: './afficher-les-matiere.component.html',
+  styleUrls: ['./afficher-les-matiere.component.scss']
 })
-export class AfficherLesMatieresComponent implements OnInit {
+export class AfficherLesMatiereComponent implements OnInit {
   ArrayMatiere: any[] = [];
   name: string;
   color: string;
@@ -27,8 +26,8 @@ export class AfficherLesMatieresComponent implements OnInit {
     })
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(AjouterUnMatieresComponent, {
-      width: '30%',
+    const dialogRef = this.dialog.open(RejoindreACoursComponent, {
+      width: '20%',
       data: { name: this.name, color: this.color },
     });
     dialogRef.afterClosed().subscribe((res) => {

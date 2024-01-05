@@ -22,6 +22,7 @@ import { AjouterDocumentComponent } from '../CRUD/Document/ajouter-document/ajou
 import { AfficherDocumentComponent } from '../CRUD/Document/afficher-document/afficher-document.component';
 import { ModifierSupprimerDoucumentComponent } from '../CRUD/Document/modifier-supprimer-doucument/modifier-supprimer-doucument.component';
 import { MeetComponent } from '../MEET/meet/meet.component';
+import { RechercheComponent } from '../recherche/recherche.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,13 @@ import { MeetComponent } from '../MEET/meet/meet.component';
     AjouterDocumentComponent,
     AfficherDocumentComponent,
     ModifierSupprimerDoucumentComponent,
-    MeetComponent
+    MeetComponent,
+    RechercheComponent
   ],
   imports: [
     CommonModule,
     ModuleEspaceEnseignantRoutingModule,
     HttpClientModule,
-    RouterModule,
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,

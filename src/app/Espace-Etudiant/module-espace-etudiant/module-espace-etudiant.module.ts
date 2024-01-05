@@ -9,6 +9,16 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AfficherLesDocumentComponent } from '../Document/afficher-les-document/afficher-les-document.component';
+import { RejoindreACoursComponent } from '../Matiere/rejoindre-a-cours/rejoindre-a-cours.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { AfficherLesMatiereComponent } from '../Matiere/afficher-les-matiere/afficher-les-matiere.component';
+import { MiseAJourProfileComponent } from '../profile/mise-a-jour-profile/mise-a-jour-profile.component';
 
 
 @NgModule({
@@ -16,14 +26,24 @@ import { FooterComponent } from '../footer/footer.component';
     MainEtudiantComponent,
     ProfileComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AfficherLesMatiereComponent,
+    AfficherLesDocumentComponent,
+    RejoindreACoursComponent,
+    MiseAJourProfileComponent
   ],
   imports: [
     CommonModule,
     ModuleEspaceEtudiantRoutingModule,
     HttpClientModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
     FormsModule,
     RouterModule,
+    NgbTooltipModule,
     
 
   ]
