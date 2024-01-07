@@ -3,12 +3,12 @@
 <div mat-dialog-title>
     <div class="up">
         <p>Code De Cour :</p>
-        <input type="text" id="form1Example1" class="form-control" name="code"
+        <input type="text" id="form1Example1" class="form-control" name="code" [(ngModel)]="code"
             placeholder="Code" />
     </div>
 
 </div>
 <div mat-dialog-actions>
     <button mat-button [mat-dialog-close]>Annuler</button>
-    <button mat-button [mat-dialog-close] cdkFocusInitial>ok</button>
+    <button mat-button [mat-dialog-close] cdkFocusInitial (click)="rejoindreAmatiere()">ok</button>
 </div>

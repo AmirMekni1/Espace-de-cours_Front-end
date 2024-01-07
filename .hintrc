@@ -22,7 +22,9 @@
       {
         "ignore": [
           "width: fit-content",
-          "user-select"
+          "user-select",
+          "backdrop-filter",
+          "backdrop-filter"
         ]
       }
     ],

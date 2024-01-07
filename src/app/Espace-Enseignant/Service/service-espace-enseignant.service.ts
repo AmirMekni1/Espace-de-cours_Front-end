@@ -126,5 +126,9 @@ export class ServiceEspaceEnseignantService {
    setTheme(theme: string) {
      this.themeSubject.next(theme);
    }
-   
+
+   Etudiants(id:any,token:any){
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.connexionBD.get(this.urlMAT+"/Lister/"+id,{headers})
+   }
 }

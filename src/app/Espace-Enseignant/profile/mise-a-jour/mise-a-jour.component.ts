@@ -82,10 +82,9 @@ MiseAjour() {
   Donnees.append("Twitter",this.Information.Twitter)
   Donnees.append("Instagram",this.Information.Instagram)
   Donnees.append("Facebook",this.Information.Facebook )
-  location.reload()
  this._service.MiseAjour(Donnees,localStorage.getItem("token")).subscribe((d) => {
-   console.log(" Mise à jour réussie");
-   
+   alert(" Mise à jour réussie");
+   location.reload()
 },
 (err) => {
   alert("Erreur lors de la mise à jour");

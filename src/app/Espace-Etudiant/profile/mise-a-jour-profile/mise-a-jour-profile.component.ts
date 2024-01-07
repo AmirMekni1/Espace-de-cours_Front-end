@@ -50,6 +50,7 @@ export class MiseAJourProfileComponent {
    this.Information.Facebook  = data.Facebook 
    this._service.GetAllMediasSociaux(data.id,localStorage.getItem("token")).subscribe((data)=>{
     this.MS = data
+    console.log(data)
     this.Information.SiteWeb   = this.MS[0] 
    this.Information.GitHub    = this.MS[1]  
    this.Information.Twitter   = this.MS[2] 
@@ -86,3 +87,5 @@ MiseAjour() {
 );
 }
 }
+
+export { MiseAJourComponent };

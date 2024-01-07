@@ -20,7 +20,7 @@ export class AfficherLesMatiereComponent implements OnInit {
     this.getCurrentUrl()
     let Data = this._service.GetDataProfile()
     this.Email = Data.Email
-    this._service.GetMatiere(Data.Email, localStorage.getItem("token")).subscribe((dat) => {
+    this._service.Matieres(Data.Email, localStorage.getItem("token")).subscribe((dat) => {
       this.ArrayMatiere = dat as any;
 
     })
@@ -36,18 +36,18 @@ export class AfficherLesMatiereComponent implements OnInit {
   }
 
 
-  Delete(x: any) {
-    this._service.DeleteeMatiere(x, localStorage.getItem("token")).subscribe(() => {
-      this._service.SupprimerToutLesDocument(x,localStorage.getItem("token")).subscribe(()=>{
-        
+  Quitter(x: any) {
+    console.log(x)
+    console.log(this.Email)
+    const verifier = confirm("Veux-tu partir ?")
+    if (verifier){
+      this._service.QuitterMatiere(x,this.Email,localStorage.getItem("token")).subscribe(() => {
+        location.reload()
+        this.route.onSameUrlNavigation = "reload"
+      }, (err) => {
+       location.reload()
       })
-      alert("Matiere Est Supprimer")
-      location.reload()
-      this.route.onSameUrlNavigation = "reload"
-    }, (err) => {
-      alert(err)
-    })
-   
+    }
   }
 
 

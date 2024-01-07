@@ -52,11 +52,7 @@ section{
     align-items: center;
   }
   
-  .button:hover .svgIcon {
-    width: 50px;
-    transition-duration: .3s;
-    transform: translateY(60%);
-  }
+
   
   .button::before {
     position: absolute;
@@ -132,4 +128,8 @@ section{
    .card:hover .card-button {
     transform: translate(-50%, 50%);
     opacity: 1;
+   }
+
+   .card-button:hover{
+    background-color: red;
    }

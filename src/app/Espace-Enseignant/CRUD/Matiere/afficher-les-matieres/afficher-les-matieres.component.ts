@@ -16,7 +16,7 @@ export class AfficherLesMatieresComponent implements OnInit {
   color: string;
   Email: any
 
-  constructor(public dialog: MatDialog, private _service: ServiceEspaceEtudiantService, private route: Router) { }
+  constructor(public dialog: MatDialog, private _service: ServiceEspaceEnseignantService, private route: Router) { }
   ngOnInit(): void {
     this.getCurrentUrl()
     let Data = this._service.GetDataProfile()

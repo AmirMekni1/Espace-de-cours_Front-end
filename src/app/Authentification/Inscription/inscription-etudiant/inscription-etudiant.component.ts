@@ -28,9 +28,9 @@ public Etudiant = {
   NomPrenom :"",
   Email : "",
   Mot_De_Pass :"",
-  R_Mot_De_Pass :"",
   Verification : "",
-  Role :""
+  Role :"",
+  Telephone :""
 }
 image : any
 
@@ -46,6 +46,7 @@ inscriptionEtudiant(){
   etudiantI.append("Verification","false");
   etudiantI.append("Role","Etudiant");
   etudiantI.append("image",this.image);
+  etudiantI.append("Telephone",this.Etudiant.Telephone);
 
   this._service.inscriptionEtudiant(etudiantI).subscribe(()=>{
     console.log(etudiantI);

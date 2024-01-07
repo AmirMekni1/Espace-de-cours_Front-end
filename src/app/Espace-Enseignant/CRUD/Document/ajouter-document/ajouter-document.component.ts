@@ -35,29 +35,43 @@ export class AjouterDocumentComponent implements OnInit {
     this.Documents.Fichier = $event.target.files[0];
     }
 
-  AjouterDoucument(){
-    let Doc = new FormData()
-    Doc.append("Email",this.Documents.Email)
-    Doc.append("DateLimitte",this.Documents.DateLimitte)
-    Doc.append("Fichier",this.Documents.Fichier)
-    Doc.append("texte",this.Documents.texte)
-    Doc.append("id",localStorage.getItem("x"))
-    if (this.Documents.DateLimitte=="" ){
-      alert("Choisir une Date Limitte")
-    } else if (this.Documents.texte=="" ){
-      if (this.Documents.Fichier=="" ){
-        alert("Champs texte est vide")
-      }else{alert(" Acune Document")}
-      
-    }else{
-    this._service.AjouterDoucument(Doc,localStorage.getItem("token")).subscribe(()=>{
-      location.reload()
-      console.log("ok")
-    },(err)=>{
-      location.reload()
-      console.log(err)
-    })
-  }}
+    AjouterDoucument(){
+    
+
+      let data = this._service.GetDataProfile()
+      this._service.DataEn(data.id,localStorage.getItem("token")).subscribe((Result:any)=>{
+  
+     
+      let Doc = new FormData()
+      Doc.append("Email",this.Documents.Email)
+      Doc.append("DateLimitte",this.Documents.DateLimitte)
+      Doc.append("Fichier",this.Documents.Fichier)
+      Doc.append("texte",this.Documents.texte)
+      Doc.append("id",localStorage.getItem("x"))
+      console.log(Result)
+      Doc.append("NomPrenom",Result.NomPrenom)
+      Doc.append("image",Result.image)
+      if (this.Documents.DateLimitte=="" ){
+        alert("Choisir une Date Limitte")
+      } else if (this.Documents.texte=="" ){
+        if (this.Documents.Fichier=="" ){
+          alert("Champs texte est vide")
+        }else{alert(" Acune Document")}
+        
+      }else{
+      this._service.AjouterDoucument(Doc,localStorage.getItem("token")).subscribe(()=>{
+        
+        console.log("ok")
+      },(err)=>{
+        
+        console.log(err)
+      })}
+      },()=>{
+  
+      })
+     
+    }
+  
 
   onNoClick(): void {
     this.dialogRef.close();

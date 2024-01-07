@@ -1,15 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ServiceEspaceEnseignantService } from 'src/app/Espace-Enseignant/Service/service-espace-enseignant.service';
-import { ModalData } from '../../Matiere/ajouter-un-matieres/ajouter-un-matieres.component';
-
+import { ServiceEspaceEtudiantService } from '../../service/service-espace-etudiant.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ModalData } from 'src/app/Espace-Enseignant/profile/mise-a-jour/mise-a-jour.component';
 @Component({
-  selector: 'app-modifier-supprimer-doucument',
-  templateUrl: './modifier-supprimer-doucument.component.html',
-  styleUrls: ['./modifier-supprimer-doucument.component.scss']
+  selector: 'app-modifier-supprimer',
+  templateUrl: './modifier-supprimer.component.html',
+  styleUrls: ['./modifier-supprimer.component.scss']
 })
-export class ModifierSupprimerDoucumentComponent implements OnInit {
+export class ModifierSupprimerComponent implements OnInit {
 
   Documents = {
     Email             :     "",
@@ -21,8 +20,8 @@ export class ModifierSupprimerDoucumentComponent implements OnInit {
 
   constructor(
     private route : Router,
-    private _service : ServiceEspaceEnseignantService,
-    public dialogRef: MatDialogRef<ModifierSupprimerDoucumentComponent>,
+    private _service : ServiceEspaceEtudiantService,
+    public dialogRef: MatDialogRef<ModifierSupprimerComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ModalData
   ){
 

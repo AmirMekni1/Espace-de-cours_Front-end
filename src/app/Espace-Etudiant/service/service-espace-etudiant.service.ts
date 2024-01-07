@@ -10,7 +10,7 @@ import { ServiceAuthentificationService } from 'src/app/Authentification/Service
 export class ServiceEspaceEtudiantService {
 constructor(private connexionBD: HttpClient,) { }
 
-urlEN = ("http://localhost:3000/Enseignant");
+urlET = ("http://localhost:3000/Etudiant");
 urlMAT = ("http://localhost:3000/Matiere");
 urlDOC = ("http://localhost:3000/Document");
 
@@ -31,50 +31,35 @@ GetDataProfile(){
   return Data
 }
 
-ajouterMatiere(o:any,token:any){
+AjouterMatiereEtudiant(o,id:any,token:any){
   const headers = new HttpHeaders({ Authorization: `${token}` });
- return this.connexionBD.post(this.urlMAT+"/ajouterMatiere",o,{ headers })
+ return this.connexionBD.post(this.urlET+"/AjouterMatiereEtudiant/"+id,{o}, { headers })
 }
 
-GetMatiere(o:any,token:any){
+RecupererMatiereEtudiant(id:any,token:any): Observable<string[]>{
   const headers = new HttpHeaders({ Authorization: `${token}` });
-  return this.connexionBD.get(this.urlMAT+"/GetAllCardMatiere/"+o , { headers })
-}
-
-DeleteeMatiere(x:any,token:any){
-  const headers = new HttpHeaders({ Authorization: `${token}` });
-  return this.connexionBD.delete(this.urlMAT+"/deleteMatiere/"+x, { headers })
-}
-
-AjouterMatiereEnseignant(o,id:any,token:any){
-  const headers = new HttpHeaders({ Authorization: `${token}` });
- return this.connexionBD.post(this.urlEN+"/AjouterMatiereEnseignant/"+id,{o}, { headers })
-}
-
-RecupererMatiereEnseignant(id:any,token:any): Observable<string[]>{
-  const headers = new HttpHeaders({ Authorization: `${token}` });
- return this.connexionBD.get<string[]>(this.urlEN+"/RecupererMatiereEnseignant/"+id, { headers })
+ return this.connexionBD.get<string[]>(this.urlET+"/RecupererMatiereEtudiant/"+id, { headers })
 }
 
 MiseAjour(data,token:any): Observable<any>{
   const headers = new HttpHeaders({ Authorization: `${token}` });
   console.log(data)
- return this.connexionBD.put<any>(this.urlEN+"/MiseAjourProfile",data,{headers})
+ return this.connexionBD.put<any>(this.urlET+"/MiseAjourProfile",data,{headers})
 }
 
 GetAllMediasSociaux(id:any,token:any): Observable<any>{
   const headers = new HttpHeaders({ Authorization: `${token}` });
- return this.connexionBD.get<any>(this.urlEN+"/GetAllMediasSociaux/"+id,{headers})
+ return this.connexionBD.get<any>(this.urlET+"/GetAllMediasSociaux/"+id,{headers})
 }
 
-DataEn(id:any,token:any){
+DataEt(id:any,token:any){
  const headers = new HttpHeaders({ Authorization: `${token}` });
- return this.connexionBD.get(this.urlEN+"/Lister/"+id,{headers})
+ return this.connexionBD.get(this.urlET+"/Lister/"+id,{headers})
 }
 
-SupprimerMatiereEnseignant(id:any,M:String,token:any){
+SupprimerMatiereEtudiant(id:any,M:String,token:any){
   const headers = new HttpHeaders({ Authorization: `${token}` });
-  return this.connexionBD.delete(this.urlEN+"/SupprimerMatiereEnseignant/"+id+"/"+M,{headers})
+  return this.connexionBD.delete(this.urlET+"/SupprimerMatiereEtudiant/"+id+"/"+M,{headers})
  }
 
  AjouterDoucument(o:any,token:any){
@@ -128,5 +113,24 @@ SupprimerMatiereEnseignant(id:any,M:String,token:any){
    this.themeSubject.next(theme);
  }
  
+ RejoindreAuMatiere(id:any,Email:any,token:any): Observable<any>{
+  const headers = new HttpHeaders({ Authorization: `${token}` });
+  return this.connexionBD.post(this.urlET+"/RejoindreAuMatiere/"+id,{Email},{headers})
+ }
+
+ Matieres(o:any,token:any){
+  const headers = new HttpHeaders({ Authorization: `${token}` });
+  return this.connexionBD.get(this.urlET+"/GetAllCardMatiere/"+o , { headers })
+}
+
+QuitterMatiere(id:any,Email:any,token:any): Observable<any>{
+  const headers = new HttpHeaders({ Authorization: `${token}` });
+  return this.connexionBD.put(this.urlET+"/QuitterMatiere/"+id,{Email},{headers})
+ }
+
+ Matiere(o:any,token:any){
+  const headers = new HttpHeaders({ Authorization: `${token}` });
+  return this.connexionBD.get(this.urlET+"/GetCardMatiere/"+o , { headers })
+}
 }
 

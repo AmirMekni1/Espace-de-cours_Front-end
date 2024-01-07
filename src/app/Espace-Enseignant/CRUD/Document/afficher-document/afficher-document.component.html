@@ -27,16 +27,13 @@
             </div>
           </div>
           <div class="card mb-4">
-            <div class="card-body text-center">
+            <div class="card-body text-center" >
               <h2 style="margin-bottom: 30px;">Les Etudiants</h2>
               <hr>
-              <p class="text-muted mb-4" style="font-size: large;">Amir
-                Mekni</p>
-              <p class="text-muted mb-4" style="font-size: large;">Nidhal
-                Lasta</p>
-              <p class="text-muted mb-4" style="font-size: large;">Mohamed Ahmed
-                Ben Mehrez</p>
+              <div *ngFor="let item of arrayET">
+              <p class="text-muted mb-4" style="font-size: large;" >{{item}}</p>
             </div>
+          </div>
           </div>
         </div>
         <div class="col-lg-8">
@@ -580,15 +577,21 @@
               <div class="card-body">
                 <div class="col-sm-3">
                 </div>
+                <div class="d-flex justify-content-center" style="padding-bottom: 20px;">
+                  ----------------------------&nbsp;&nbsp;&nbsp;&nbsp;
+                <img
+                [src]="'http://127.0.0.1:3000/GetImage/'+item.image"  style=" width: 6%; height: auto; "/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.NomPrenom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----------------------------
+                </div>
                 <div style="margin-bottom: 30px;">
                   <i class="fas fa-file-pdf fa-2x"
-                    style="position: absolute; top: 28px; margin-left: 3px;"></i>
+                    style="position: absolute; top: 87px; margin-left: 3px;"></i>
                   <button id="btnLarge"
                     style="width: 94%; height: 40px; float: right;">
                     <a
                       [href]="'http://127.0.0.1:3000/GetImageDocument/'+item.Fichier"
                       *ngIf=" item.Fichier!= '' &&  item.Fichier!= 'Message !'"
-                      style="padding-right: 50%; color: white; float: left;">
+                      style="padding-right: 50%;  color: white; float: left;">
                       <a
                         *ngIf=" item.Fichier=='' ||  item.Fichier== 'Message !'"
                         style="padding-right: 50%; color: white; float: left;">{{item.Fichier}}</a>
@@ -655,6 +658,8 @@
                     disabled name="Commentaire"
                     placeholder="Commentaire" value="{{Comm.Commentaire}}"
                     style="border-radius: 500px; text-align: center; " />
+                    <img
+                    [src]="'http://127.0.0.1:3000/GetImage/'+item.image"  style=" position: absolute; bottom: 50px; left: 40px; width: 3%; height: auto; "/>
                 </div>
               </div>
             </div>

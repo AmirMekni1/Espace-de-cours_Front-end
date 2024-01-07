@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceEspaceEtudiantService } from '../service/service-espace-etudiant.service';
 import { MatDialog } from '@angular/material/dialog';
-import { MiseAJourComponent } from 'src/app/Espace-Enseignant/profile/mise-a-jour/mise-a-jour.component';
+import { MiseAJourComponent, MiseAJourProfileComponent } from 'src/app/Espace-Etudiant/profile/mise-a-jour-profile/mise-a-jour-profile.component';
 import { auto } from '@popperjs/core';
 
 @Component({
@@ -11,38 +11,38 @@ import { auto } from '@popperjs/core';
 })
 export class ProfileComponent implements  OnInit {
 
-  profile = {
+  profileEt = {
     _id: "",
     NomPrenom: "",
     image: "",
     Email :"",
     Role:"",
-    MatiereEns:"",
+    MatiereET:"",
     Telephone : ""
   }
   MS=[]
   Array : any;
   constructor(private _service: ServiceEspaceEtudiantService,public dialog: MatDialog) {
     let data = this._service.GetDataProfile();
-    this._service.DataEn(data.id,localStorage.getItem("token")).subscribe((d:any)=>{
-      this.profile=d
+    this._service.DataEt(data.id,localStorage.getItem("token")).subscribe((d:any)=>{
+      this.profileEt=d[0]
     },()=>{
     })
   }
   ngOnInit(): void {
     let data = this._service.GetDataProfile();
-    this._service.RecupererMatiereEnseignant(data.id,localStorage.getItem('token')).subscribe((d)=>{
+    this._service.RecupererMatiereEtudiant(data.id,localStorage.getItem('token')).subscribe((d)=>{
       this.Array = d as any;
     this._service.GetAllMediasSociaux(data.id,localStorage.getItem("token")).subscribe((d)=>{
       this.MS=d
     })
     })
-
+    console.log( this.profileEt)
    
   }
 
   AjouterMatiereEnseignant(){
-      this._service.AjouterMatiereEnseignant(this.profile.MatiereEns,this.profile._id,localStorage.getItem("token")).subscribe(()=>{
+      this._service.AjouterMatiereEtudiant(this.profileEt.MatiereET,this.profileEt._id,localStorage.getItem("token")).subscribe(()=>{
         console.log("ok")
         location.reload()
       },(err)=>{
@@ -52,7 +52,7 @@ export class ProfileComponent implements  OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(MiseAJourComponent, {
+    const dialogRef = this.dialog.open(MiseAJourProfileComponent, {
       width: '33%',
       height:auto,
     });
@@ -64,7 +64,7 @@ export class ProfileComponent implements  OnInit {
   SupprimerMatiereEnseignant(Matiere:String){
     let verif =confirm("Vous Shouhaitez supprimer ce contenu")
     if (verif){
-      this._service.SupprimerMatiereEnseignant(this.profile._id,Matiere,localStorage.getItem("token")).subscribe(()=>{
+      this._service.SupprimerMatiereEtudiant(this.profileEt._id,Matiere,localStorage.getItem("token")).subscribe(()=>{
         alert("Supprimer Avec Succees")
         location.reload()
       })

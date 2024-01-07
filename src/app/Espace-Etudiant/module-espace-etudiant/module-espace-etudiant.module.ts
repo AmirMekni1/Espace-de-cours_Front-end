@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { AfficherLesMatiereComponent } from '../Matiere/afficher-les-matiere/afficher-les-matiere.component';
 import { MiseAJourProfileComponent } from '../profile/mise-a-jour-profile/mise-a-jour-profile.component';
+import { AjouterDocumentComponent } from '../Document/ajouter-document/ajouter-document.component';
+import { ModifierSupprimerComponent } from '../Document/modifier-supprimer/modifier-supprimer.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { MiseAJourProfileComponent } from '../profile/mise-a-jour-profile/mise-a
     AfficherLesMatiereComponent,
     AfficherLesDocumentComponent,
     RejoindreACoursComponent,
-    MiseAJourProfileComponent
+    MiseAJourProfileComponent,
+    AjouterDocumentComponent,
+    ModifierSupprimerComponent
   ],
   imports: [
     CommonModule,
