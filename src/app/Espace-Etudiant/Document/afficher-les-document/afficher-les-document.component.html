@@ -20,16 +20,13 @@
           <div class="col-lg-4">
             
             <div class="card mb-4">
-              <div class="card-body text-center">
+              <div class="card-body text-center" >
                 <h2 style="margin-bottom: 30px;">Les Etudiants</h2>
                 <hr>
-                <p class="text-muted mb-4" style="font-size: large;">Amir
-                  Mekni</p>
-                <p class="text-muted mb-4" style="font-size: large;">Nidhal
-                  Lasta</p>
-                <p class="text-muted mb-4" style="font-size: large;">Mohamed Ahmed
-                  Ben Mehrez</p>
+                <div *ngFor="let item of arrayET">
+                <p class="text-muted mb-4" style="font-size: large;" >{{item}}</p>
               </div>
+            </div>
             </div>
           </div>
           <div class="col-lg-8">

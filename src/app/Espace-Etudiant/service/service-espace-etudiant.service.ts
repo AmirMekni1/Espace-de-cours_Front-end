@@ -132,5 +132,10 @@ QuitterMatiere(id:any,Email:any,token:any): Observable<any>{
   const headers = new HttpHeaders({ Authorization: `${token}` });
   return this.connexionBD.get(this.urlET+"/GetCardMatiere/"+o , { headers })
 }
+
+Etudiants(id:any,token:any){
+  const headers = new HttpHeaders({ Authorization: `${token}` });
+  return this.connexionBD.get(this.urlMAT+"/Lister/"+id,{headers})
+ }
 }
 

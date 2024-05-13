@@ -22,6 +22,7 @@ export class AfficherLesDocumentComponent implements OnInit {
   arrayDoc : [] = [];
   image : any
   arrayCom : [] = [];
+  arrayET : [] = [];
   constructor(private _service : ServiceEspaceEtudiantService,public dialog: MatDialog){
     let data = this._service.GetDataProfile()
     this._service.Matiere(localStorage.getItem("x"),localStorage.getItem("token")).subscribe((d:any)=>{
@@ -34,6 +35,12 @@ export class AfficherLesDocumentComponent implements OnInit {
       this.arrayDoc = dataDoc
       console.log(this.arrayDoc)
      })
+
+     
+    this._service.Etudiants(localStorage.getItem("x"),localStorage.getItem("token")).subscribe((d)=>{
+      this.arrayET = d[0].Les_Etudiants as any
+      console.log(d[0].Les_Etudiants)
+    })
   }
   ngOnInit(): void {
   
